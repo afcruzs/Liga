@@ -1,0 +1,263 @@
+SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
+SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
+SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL';
+
+
+-- -----------------------------------------------------
+-- Table `tecnico`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `tecnico` ;
+
+CREATE  TABLE IF NOT EXISTS `tecnico` (
+  `id_tecnico` INT NOT NULL ,
+  `telefono_tecnico` VARCHAR(45) NULL ,
+  `experiencia_tecnico` INT NULL ,
+  `apellidos_tecnico` VARCHAR(45) NOT NULL ,
+  `nombres_tecnico` VARCHAR(45) NOT NULL ,
+  PRIMARY KEY (`id_tecnico`) )
+ENGINE = InnoDB;
+
+CREATE INDEX `tecnico_idx` ON `tecnico` (`nombres_tecnico`, `apellidos_tecnico`) ;
+
+
+-- -----------------------------------------------------
+-- Table `equipo`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `equipo` ;
+
+CREATE  TABLE IF NOT EXISTS `equipo` (
+  `id_equipo` INT NOT NULL AUTO_INCREMENT ,
+  `ciudad_equipo` VARCHAR(45) NULL ,
+  `nombre_equipo` VARCHAR(45) NOT NULL ,
+  `tecnico_id_tecnico` INT NOT NULL ,
+  PRIMARY KEY (`id_equipo`) ,
+  CONSTRAINT `fk_equipo_tecnico1`
+    FOREIGN KEY (`tecnico_id_tecnico` )
+    REFERENCES `tecnico` (`id_tecnico` )
+    )
+ENGINE = InnoDB;
+
+CREATE INDEX `nombre_equipo_UNIQUE` ON `equipo` (`nombre_equipo` ) ;
+
+CREATE INDEX `fk_equipo_tecnico1` ON `equipo` (`tecnico_id_tecnico` ) ;
+
+
+-- -----------------------------------------------------
+-- Table `entrenador`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `entrenador` ;
+
+CREATE  TABLE IF NOT EXISTS `entrenador` (
+  `id_entrenador` INT NOT NULL AUTO_INCREMENT ,
+  `telefono_entrenador` VARCHAR(45) NULL ,
+  `experiencia_entrenador` INT NULL DEFAULT 0 ,
+  `apellidos_entrenador` VARCHAR(45) NOT NULL ,
+  `nombres_entrenador` VARCHAR(45) NOT NULL ,
+  `equipo_id_equipo` INT NOT NULL ,
+  PRIMARY KEY (`id_entrenador`) ,
+  CONSTRAINT `fk_entrenador_equipo1`
+    FOREIGN KEY (`equipo_id_equipo` )
+    REFERENCES `equipo` (`id_equipo` )
+    )
+ENGINE = InnoDB;
+
+CREATE INDEX `entrenador_idx` ON `entrenador` (`nombres_entrenador`, `apellidos_entrenador`) ;
+
+CREATE INDEX `fk_entrenador_equipo1` ON `entrenador` (`equipo_id_equipo` ) ;
+
+
+-- -----------------------------------------------------
+-- Table `historico_entrenadores`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `historico_entrenadores` ;
+
+CREATE  TABLE IF NOT EXISTS `historico_entrenadores` (
+  `salario_historico_entrenadores` DOUBLE NOT NULL ,
+  `aÃ±o_historico_entrenadores` INT NOT NULL ,
+  `entrenador_id_entrenador` INT NOT NULL ,
+  CONSTRAINT `fk_historico_entrenadores_entrenador1`
+    FOREIGN KEY (`entrenador_id_entrenador` )
+    REFERENCES `entrenador` (`id_entrenador` )
+    )
+ENGINE = InnoDB;
+
+CREATE INDEX `fk_historico_entrenadores_entrenador1` ON `historico_entrenadores` (`entrenador_id_entrenador`) ;
+
+CREATE INDEX `salario_idx` ON `historico_entrenadores` (`salario_historico_entrenadores` ) ;
+
+
+-- -----------------------------------------------------
+-- Table `jugador`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `jugador` ;
+
+CREATE  TABLE IF NOT EXISTS `jugador` (
+  `id_jugador` INT NOT NULL AUTO_INCREMENT ,
+  `nacionalidad_jugador` VARCHAR(45) NOT NULL ,
+  `edad_jugador` INT NULL ,
+  `apellidos_jugador` VARCHAR(45) NOT NULL ,
+  `nombres_jugador` VARCHAR(45) NOT NULL ,
+  `numero_jugador` INT NOT NULL ,
+  `fechaNacimiento_jugador` DATETIME NULL ,
+  PRIMARY KEY (`id_jugador`) )
+ENGINE = InnoDB;
+
+CREATE INDEX `jugador_idx` ON `jugador` (`nombres_jugador` , `apellidos_jugador` ) ;
+
+CREATE INDEX `nacionalidad_jugador_idx` ON `jugador` (`nacionalidad_jugador`) ;
+
+
+-- -----------------------------------------------------
+-- Table `historico_jugadores`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `historico_jugadores` ;
+
+CREATE  TABLE IF NOT EXISTS `historico_jugadores` (
+  `id_jugador` INT NOT NULL ,
+  `id_equipo` INT NOT NULL ,
+  `aÃ±o_historico_jugadores` INT NOT NULL ,
+  `numero_historico_jugadores` INT NOT NULL ,
+  `numero_goles_jugadores` INT NULL ,
+  CONSTRAINT `id_jugador`
+    FOREIGN KEY (`id_jugador` )
+    REFERENCES `jugador` (`id_jugador` ),
+  CONSTRAINT `id_equipo`
+    FOREIGN KEY (`id_equipo` )
+    REFERENCES `equipo` (`id_equipo` )
+    )
+ENGINE = InnoDB;
+
+CREATE INDEX `id_jugador_idx` ON `historico_jugadores` (`id_jugador`) ;
+
+CREATE INDEX `id_equipo_idx` ON `historico_jugadores` (`id_equipo`) ;
+
+CREATE INDEX `numero_historio_idx` ON `historico_jugadores` (`numero_historico_jugadores`) ;
+
+
+-- -----------------------------------------------------
+-- Table `arbitro`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `arbitro` ;
+
+CREATE  TABLE IF NOT EXISTS `arbitro` (
+  `id_arbitro` INT NOT NULL ,
+  `nombre` VARCHAR(45) NOT NULL ,
+  PRIMARY KEY (`id_arbitro`) )
+ENGINE = InnoDB;
+
+CREATE INDEX `nombre_arbitro_idx` ON `arbitro` (`nombre` ) ;
+
+
+-- -----------------------------------------------------
+-- Table `campeonato`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `campeonato` ;
+
+CREATE  TABLE IF NOT EXISTS `campeonato` (
+  `id_campeonato` INT NOT NULL ,
+  `aÃ±o` INT NOT NULL ,
+  `semestre` INT NOT NULL ,
+  PRIMARY KEY (`id_campeonato`) )
+ENGINE = InnoDB;
+
+CREATE INDEX `campeonato_idx` ON `campeonato` (`aÃ±o`, `semestre`) ;
+
+
+-- -----------------------------------------------------
+-- Table `partido`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `partido` ;
+
+CREATE  TABLE IF NOT EXISTS `partido` (
+  `id_partido` INT NOT NULL ,
+  `fecha_partido` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ,
+  `ciudad_partido` VARCHAR(45) NOT NULL ,
+  `estadio` VARCHAR(45) NOT NULL ,
+  `goles_local` INT NOT NULL ,
+  `goles_visitante` INT NOT NULL ,
+  `id_local` INT NOT NULL ,
+  `id_visitante` INT NOT NULL ,
+  `id_arbitro` INT NOT NULL ,
+  `id_campeonato` INT NOT NULL ,
+  PRIMARY KEY (`id_partido`) ,
+  CONSTRAINT `id_local`
+    FOREIGN KEY (`id_local` )
+    REFERENCES `equipo` (`id_equipo` ),
+  CONSTRAINT `id_visitante`
+    FOREIGN KEY (`id_visitante` )
+    REFERENCES `equipo` (`id_equipo` ),
+  CONSTRAINT `id_arbitro`
+    FOREIGN KEY (`id_arbitro` )
+    REFERENCES `arbitro` (`id_arbitro` ),
+  CONSTRAINT `id_campeonato`
+    FOREIGN KEY (`id_campeonato` )
+    REFERENCES `campeonato` (`id_campeonato` )
+    )
+ENGINE = InnoDB;
+
+CREATE INDEX `id_local_idx` ON `partido` (`id_local`) ;
+
+CREATE INDEX `id_visitante_idx` ON `partido` (`id_visitante`) ;
+
+CREATE INDEX `id_arbitro_idx` ON `partido` (`id_arbitro`) ;
+
+CREATE INDEX `fecha_partido_idx` ON `partido` (`fecha_partido`) ;
+
+CREATE INDEX `ciudad_idx` ON `partido` (`ciudad_partido`) ;
+
+
+-- -----------------------------------------------------
+-- Table `gol`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `gol` ;
+
+CREATE  TABLE IF NOT EXISTS `gol` (
+  `id_gol` INT NOT NULL ,
+  `minuto` INT NOT NULL ,
+  `id_partido` INT NOT NULL ,
+  `id_jugador` INT NOT NULL ,
+  PRIMARY KEY (`id_gol`) ,
+  CONSTRAINT `id_partido`
+    FOREIGN KEY (`id_partido` )
+    REFERENCES `partido` (`id_partido` ),
+  CONSTRAINT `id_jugador_gol`
+    FOREIGN KEY (`id_jugador` )
+    REFERENCES `jugador` (`id_jugador` )
+    )
+ENGINE = InnoDB;
+
+CREATE UNIQUE INDEX `id_partido_UNIQUE` ON `gol` (`id_partido`) ;
+
+CREATE INDEX `id_jugador_idx` ON `gol` (`id_jugador`) ;
+
+
+-- -----------------------------------------------------
+-- Table `posiciones`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `posiciones` ;
+
+CREATE  TABLE IF NOT EXISTS `posiciones` (
+  `posicion` INT NOT NULL UNIQUE,
+  `puntaje` INT NOT NULL ,
+  `id_campeonato` INT NOT NULL ,
+  `id_equipo` INT NOT NULL ,
+  CONSTRAINT `id_campeonato_posiciones`
+    FOREIGN KEY (`id_campeonato` )
+    REFERENCES `campeonato` (`id_campeonato` ),
+  CONSTRAINT `id_equipo_posiciones`
+    FOREIGN KEY (`id_equipo` )
+    REFERENCES `equipo` (`id_equipo` )
+    )
+ENGINE = InnoDB;
+
+CREATE INDEX `id_campeonato_idx` ON `posiciones` (`id_campeonato` ) ;
+
+CREATE INDEX `id_equipo_idx` ON `posiciones` (`id_equipo`) ;
+
+CREATE UNIQUE INDEX `posicion_idx` ON `posiciones` (`posicion`) ;
+
+
+
+SET SQL_MODE=@OLD_SQL_MODE;
+SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
+SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
