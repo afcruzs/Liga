@@ -100,15 +100,16 @@ CREATE PROCEDURE insertar_equipo (ciudad VARCHAR(45), nombre VARCHAR(45), rendim
 $$
 DELIMITER ;
 
-
+DROP PROCEDURE insertar_entrenador;
 
 DELIMITER $$
 CREATE PROCEDURE insertar_entrenador(telefono VARCHAR(45), equipo VARCHAR(45), experiencia INT, 
 									apellidos VARCHAR(45), nombres VARCHAR(45), año INT, salario DOUBLE)
 	BEGIN
 	START TRANSACTION;
-		INSERT INTO entrenador (telefono_entrenador, experiencia_entrenador, apellidos_entrenador, nombres_entrenador, salario_entrenador)
-						 VALUES( telefono, experiencia, apellidos, nombres, salario );
+		SET @id_equipo = (SELECT id_equipo FROM equipo WHERE nombre_equipo = equipo);
+		INSERT INTO entrenador (telefono_entrenador, experiencia_entrenador, apellidos_entrenador, nombres_entrenador, salario_entrenador, id_equipo)
+						 VALUES( telefono, experiencia, apellidos, nombres, salario, @id_equipo );
 	COMMIT;
 	END;
 $$
