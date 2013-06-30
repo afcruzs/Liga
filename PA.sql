@@ -76,12 +76,12 @@ DROP PROCEDURE insertar_jugador;
 DELIMITER $$
 
 CREATE PROCEDURE insertar_jugador (nacionalidad VARCHAR(45), edad INT,  
-								apellidos VARCHAR(45), nombres VARCHAR(45), nombre_equ VARCHAR(45), numero_goles INT, numero_camiseta INT, fecha DATETIME )
+								apellidos VARCHAR(45), nombres VARCHAR(45), nombre_equ VARCHAR(45), numero_goles INT, numero_camiseta INT, fecha DATETIME, salario DOUBLE )
 	BEGIN	
 	START TRANSACTION;
 		SET @id_equ = (SELECT id_equipo FROM equipo WHERE nombre_equipo = nombre_equ);
-		INSERT INTO jugador (nacionalidad_jugador, edad_jugador,nombres_jugador, apellidos_jugador, goles_jugador, numero_jugador, fechaNacimiento_jugador, id_equipo) 
-					VALUES (nacionalidad,edad,nombres,apellidos, numero_goles, numero_camiseta, fecha, @id_equ);
+		INSERT INTO jugador (nacionalidad_jugador, edad_jugador,nombres_jugador, apellidos_jugador, goles_jugador, numero_jugador, fechaNacimiento_jugador, id_equipo, salario_jugador) 
+					VALUES (nacionalidad,edad,nombres,apellidos, numero_goles, numero_camiseta, fecha, @id_equ, salario );
 	COMMIT;
 	END;
 $$
@@ -227,15 +227,9 @@ DELIMITER ;
 CALL insertar_arbitro('asdasd', 'asdasd', 'pecora');
 CALL insertar_tecnico('564654465', 7, 'Cruz', 'Andres', 1213213);
 CALL insertar_equipo ('PecoraCity', 'PecoraTeam', 'MALO', 'Cruz', 'Andres');
-CALL insertar_jugador('Cholo', 80, 'Zambrano', 'Pedro', 'PecoraTeam', 0, 10,'1985/03/03');
+CALL insertar_jugador('Cholo', 80, 'Zambrano', 'Pedro', 'PecoraTeam', 0, 10,'1985/03/03', 300000);
 CALL insertar_campeonato(2013, 2);
 CALL insertar_partido( curdate(), 'asdsadasd','asdasd', 8, 7, 'PecoraTeam', 'PecoraTeam', 2013, 2 );
 CALL asingar_partido_arbitro('asdasd', 'asdasd', 'PecoraTeam', 'PecoraTeam', 2013, 2);
 CALL insertar_gol (14, 'penal', 'Zambrano', 'Pedro', 'PecoraTeam', 'PecoraTeam', 2013, 2 );
 CALL insertar_equipo_en_campeonato('PecoraTeam',2013,2);
-
-
-
-
-
-
