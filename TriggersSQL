@@ -16,12 +16,14 @@ drop trigger if exists jugador_update;
 drop trigger if exists entrenador_update;
 drop trigger if exists tecnico_update;
 
+drop trigger if exists gol_insert;
+
 -- ------------ INSERT CONSTRAINT TRIGGERS
 
 DELIMITER $$
 CREATE TRIGGER equipo_insert_constraint BEFORE INSERT ON equipo FOR EACH ROW
 BEGIN
-  DECLARE msg varchar(255);
+	DECLARE msg varchar(255);
 	IF (!(NEW.nombre_equipo regexp binary '^[A-Z]'))
 	THEN
 		SET msg = concat('Constraint equipo_insert_constraint violated in attribute nombre_equipo with value ', NEW.nombre_equipo);
@@ -291,10 +293,15 @@ $$
 DELIMITER $$
 CREATE TRIGGER jugador_update AFTER UPDATE ON jugador FOR EACH ROW
 BEGIN
+
+IF(new.id_equipo != old.id_equipo)
+THEN
     set @Añojug = (select Year(CURDATE()));
     insert into historico_jugadores 
         values(old.id_equipo,old.id_jugador,@Añojug,old.numero_jugador,old.goles_jugador);
-    
+        
+    update jugador set new.goles_jugador=0 where id_jugador like new.id_jugador;
+ END IF;
 END;
 $$
 
@@ -319,5 +326,14 @@ BEGIN
 END;
 $$
 
+-- TRIGGERS NORMALES 
 
 
+DELIMITER $$
+CREATE TRIGGER gol_insert AFTER INSERT ON gol FOR EACH ROW
+BEGIN
+    
+    update jugador set goles_jugador=goles_jugador+1 where id_jugador like new.id_jugador; 
+    
+END;
+$$
