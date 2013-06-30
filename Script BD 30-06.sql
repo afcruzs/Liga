@@ -331,6 +331,7 @@ CREATE  TABLE IF NOT EXISTS `historico_tecnico` (
   `id_tecnico` INT NOT NULL ,
   `telefono_tecnico` VARCHAR(45) NOT NULL ,
   `experiencia_tecnico` INT NULL ,
+  `salario_tecnico` DOUBLE NULL,
   PRIMARY KEY (`id_equipo`, `id_tecnico`) ,
   CONSTRAINT `fk_historico_tecnico_equipo1`
     FOREIGN KEY (`id_equipo` )
