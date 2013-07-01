@@ -13,7 +13,6 @@ DROP PROCEDURE IF EXISTS cambio_jugador;
 DROP PROCEDURE IF EXISTS cambio_tecnico;
 DROP PROCEDURE IF EXISTS cambio_entrenador;
 
-DROP procedure insertar_jugador;
 DELIMITER $$
 
 CREATE PROCEDURE insertar_jugador (nacionalidad VARCHAR(45),  
@@ -29,7 +28,7 @@ CREATE PROCEDURE insertar_jugador (nacionalidad VARCHAR(45),
 $$
 DELIMITER ;
 
-DROP PROCEDURE insertar_equipo;
+
 
 DELIMITER $$
 CREATE PROCEDURE insertar_equipo (ciudad VARCHAR(45), nombre VARCHAR(45), nombre_tec VARCHAR(45), apellido_tec  VARCHAR(45))
