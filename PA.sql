@@ -198,7 +198,7 @@ CREATE PROCEDURE insertar_equipo_en_campeonato(nombre_eq VARCHAR(45), añ INT, s
 	SET @id_camp = (SELECT id_campeonato FROM campeonato WHERE año = añ AND semestre = sem);
 	SET @id_equ = (SELECT id_equipo FROM equipo WHERE nombre_equipo = nombre_eq);
 	
-	INSERT INTO posicion VALUES(1,0, @id_camp, @id_equ, 0,0);
+	INSERT INTO posicion (id_campeonato, id_equipo)VALUES(@id_camp, @id_equ);
 	COMMIT;
 	END;
 $$

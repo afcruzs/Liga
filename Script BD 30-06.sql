@@ -296,9 +296,9 @@ CREATE  TABLE IF NOT EXISTS `posicion` (
   `id_campeonato` INT NOT NULL ,
   `id_equipo` INT NOT NULL ,
   `pos` INT NOT NULL DEFAULT 1 ,
-  `puntaje` INT NOT NULL ,
-  `goles_favor` INT NOT NULL ,
-  `goles_contra` INT NOT NULL ,
+  `puntaje` INT NOT NULL DEFAULT 0 ,
+  `goles_favor` INT NOT NULL DEFAULT 0,
+  `goles_contra` INT NOT NULL DEFAULT 0 ,
   PRIMARY KEY (`id_campeonato`, `id_equipo`) ,
   CONSTRAINT `id_campeonato_posicion`
     FOREIGN KEY (`id_campeonato` )
