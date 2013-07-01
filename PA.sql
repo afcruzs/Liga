@@ -16,23 +16,25 @@ DROP PROCEDURE IF EXISTS cambio_entrenador;
 DELIMITER $$
 
 CREATE PROCEDURE insertar_jugador (nacionalidad VARCHAR(45), edad INT,  
-								nombres VARCHAR(45), apellidos VARCHAR(45),  nombre_equ VARCHAR(45), numero_goles INT, numero_camiseta INT, fecha DATETIME, salario DOUBLE, rendimiento VARCHAR(45) )
+								nombres VARCHAR(45), apellidos VARCHAR(45),  nombre_equ VARCHAR(45), numero_goles INT, numero_camiseta INT, fecha DATETIME, salario DOUBLE)
 	BEGIN	
 	START TRANSACTION;
 		SET @id_equ = (SELECT id_equipo FROM equipo WHERE nombre_equipo = nombre_equ);
-		INSERT INTO jugador (nacionalidad_jugador, edad_jugador,nombres_jugador, apellidos_jugador, goles_jugador, numero_jugador, fechaNacimiento_jugador, id_equipo, salario_jugador, rendimiento_jugador) 
-					VALUES (nacionalidad,edad,nombres,apellidos, numero_goles, numero_camiseta, fecha, @id_equ, salario, rendimiento );
+		INSERT INTO jugador (nacionalidad_jugador, edad_jugador,nombres_jugador, apellidos_jugador, goles_jugador, numero_jugador, fechaNacimiento_jugador, id_equipo, salario_jugador) 
+					VALUES (nacionalidad,edad,nombres,apellidos, numero_goles, numero_camiseta, fecha, @id_equ, salario );
 	COMMIT;
 	END;
 $$
 DELIMITER ;
+
+DROP PROCEDURE insertar_equipo;
 
 DELIMITER $$
 CREATE PROCEDURE insertar_equipo (ciudad VARCHAR(45), nombre VARCHAR(45), nombre_tec VARCHAR(45), apellido_tec  VARCHAR(45))
 	BEGIN
 	START TRANSACTION;
 		SET @id_tec = (SELECT id_tecnico FROM tecnico WHERE nombres_tecnico = nombre_tec  AND apellidos_tecnico = apellido_tec );
-		INSERT INTO equipo (ciudad_equipo, nombre_equipo, id_tecnico) VALUES (ciudad,nombre,@id_tec);
+		INSERT INTO equipo (id_tecnico, ciudad_equipo, nombre_equipo, rendimiento_equipo) VALUES (@id_tec, ciudad, nombre, 'ESTANDAR');
 	COMMIT;
 	END;
 $$
