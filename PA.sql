@@ -156,7 +156,7 @@ DELIMITER ;
 
 
 DELIMITER $$
-CREATE PROCEDURE insertar_gol(minuto INT, tipo_gol VARCHAR(45), ape_jug VARCHAR(45), nom_jug VARCHAR(45),
+CREATE PROCEDURE insertar_gol(minuto INT, tipo_gol VARCHAR(45), nom_jug VARCHAR(45), ape_jug VARCHAR(45),
 							  nombre_loc VARCHAR(45), nombre_vis VARCHAR(45), añ INT, sem INT)
 	BEGIN
 	START TRANSACTION;
@@ -220,6 +220,8 @@ CREATE PROCEDURE cambio_entrenador( nombres VARCHAR(45), apellidos VARCHAR(45), 
 	END;
 $$
 DELIMITER ;
+
+SELECT * FROM equipo;
 
 /*CALL insertar_arbitro('asdasd', 'asdasd', 'pecora');
 CALL insertar_tecnico('564654465', 7, 'Cruz', 'Andres', 1213213);

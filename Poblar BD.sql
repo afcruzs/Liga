@@ -37,240 +37,240 @@ CALL insertar_equipo('Medellin','Nacional','Juan Carlos', 'Osorio');
 CALL insertar_equipo('Tunja','Patriotas','Arturo Ernesto', 'Reyes');
 CALL insertar_equipo('Ibague','Tolima','Carlos', 'Castro');
 
-
-CALL insertar_jugador( 'Colombiano','Edgar Pedro' , 'Nicolás', 'Tolima', 0, '1987/4/15', 2031993 );
-CALL insertar_jugador( 'Chileno','Pablo Saúl' , 'Buitrón', 'Tolima', 1, '1994/10/9', 2011628 );
-CALL insertar_jugador( 'Colombiano','Mateo Alexis' , 'Landázuri', 'Tolima', 2, '1990/10/7', 2005642 );
-CALL insertar_jugador( 'Peruano','Mauricio Armando' , 'Dávila', 'Tolima', 3, '1992/2/27', 2004912 );
-CALL insertar_jugador( 'Chileno','Miguel Lucián' , 'Valdés', 'Tolima', 4, '1989/5/13', 2007681 );
-CALL insertar_jugador( 'Colombiano','Jairo Tobías' , 'Julián', 'Tolima', 5, '1994/1/22', 2027363 );
-CALL insertar_jugador( 'Chileno','Elías Noé' , 'Diego', 'Tolima', 6, '1991/10/17', 2006146 );
-CALL insertar_jugador( 'Colombiano','Enrique Abraham' , 'Villalobos', 'Tolima', 7, '1987/5/19', 2027596 );
-CALL insertar_jugador( 'Colombiano','José Noé' , 'Benjamín', 'Tolima', 8, '1994/2/17', 2009076 );
-CALL insertar_jugador( 'Colombiano','Tomás Mauricio' , 'Villalobos', 'Tolima', 9, '1991/8/24', 2020847 );
-CALL insertar_jugador( 'Peruano','Samuel Fernando' , 'Muñoz', 'Tolima', 10, '1994/8/18', 2019449 );
-
-
-CALL insertar_jugador( 'Argentino','Ricardo Abram' , 'Rojas', 'Patriotas', 0, '1992/11/8', 2011153 );
-CALL insertar_jugador( 'Argentino','Ezequiel Josué' , 'Eduardo', 'Patriotas', 1, '1988/9/7', 2022905 );
-CALL insertar_jugador( 'Chileno','César David' , 'Pérez', 'Patriotas', 2, '1992/6/20', 2011831 );
-CALL insertar_jugador( 'Colombiano','Andrés Joaquín' , 'Gutiérrez', 'Patriotas', 3, '1994/6/14', 2008215 );
-CALL insertar_jugador( 'Colombiano','Adán Alonzo' , 'Martínez', 'Patriotas', 4, '1989/5/8', 2000423 );
-CALL insertar_jugador( 'Colombiano','Ramón Salvador' , 'Alan', 'Patriotas', 5, '1994/11/7', 2020537 );
-CALL insertar_jugador( 'Brasileño','Rafael Felipe' , 'Muñoz', 'Patriotas', 6, '1987/6/13', 2004708 );
-CALL insertar_jugador( 'Colombiano','Carlos Emilio' , 'Gabriel', 'Patriotas', 7, '1985/7/10', 2018051 );
-CALL insertar_jugador( 'Colombiano','Héctor Paúl' , 'Segura', 'Patriotas', 8, '1986/3/12', 2024885 );
-CALL insertar_jugador( 'Colombiano','Angel Mario' , 'Paúl', 'Patriotas', 9, '1994/7/4', 2023515 );
-CALL insertar_jugador( 'Colombiano','Josué Ángel' , 'Pérez', 'Patriotas', 10, '1988/3/7', 2021277 );
+CALL insertar_jugador( 'Colombiano','Abraham Jorge' , 'Gutiérrez', 'Junior', 0, '1994/4/2', 2003198 );
+CALL insertar_jugador( 'Peruano','Omar Hugo' , 'Ascázubi', 'Junior', 1, '1993/2/13', 2021739 );
+CALL insertar_jugador( 'Argentino','Leonardo Emanuel' , 'Orozco', 'Junior', 2, '1989/1/28', 2007138 );
+CALL insertar_jugador( 'Colombiano','Adán Román' , 'Mora', 'Junior', 3, '1990/7/13', 2004221 );
+CALL insertar_jugador( 'Brasileño','Leonardo Pablo' , 'Martínez', 'Junior', 4, '1993/8/25', 2016391 );
+CALL insertar_jugador( 'Peruano','Fernando Alan' , 'Betancur', 'Junior', 5, '1990/5/10', 2002688 );
+CALL insertar_jugador( 'Colombiano','David Benjamín' , 'Beltrán', 'Junior', 6, '1985/7/17', 2026396 );
+CALL insertar_jugador( 'Chileno','Raúl Salvador' , 'Orozco', 'Junior', 7, '1986/9/6', 2030915 );
+CALL insertar_jugador( 'Peruano','Arturo Eduardo' , 'Fuentes', 'Junior', 8, '1991/3/24', 2029330 );
+CALL insertar_jugador( 'Colombiano','Adrián Miguel' , 'Torres', 'Junior', 9, '1991/10/27', 2019545 );
+CALL insertar_jugador( 'Brasileño','Fernando Jorge' , 'Mora', 'Junior', 10, '1987/2/6', 2018204 );
 
 
-
-CALL insertar_jugador( 'Colombiano','Max Omar' , 'Miguel', 'Nacional', 0, '1991/5/9', 2013670 );
-CALL insertar_jugador( 'Colombiano','Tomás Sebastián' , 'Alejandro', 'Nacional', 1, '1991/9/9', 2000355 );
-CALL insertar_jugador( 'Chileno','Ernesto Alonzo' , 'Dávila', 'Nacional', 2, '1990/10/19', 2005256 );
-CALL insertar_jugador( 'Colombiano','Adrián Daniel' , 'Beltrán', 'Nacional', 3, '1988/5/12', 2002443 );
-CALL insertar_jugador( 'Peruano','Sebastián Roberto' , 'Segura', 'Nacional', 4, '1987/11/22', 2009959 );
-CALL insertar_jugador( 'Chileno','Samuel Santiago' , 'Castañón', 'Nacional', 5, '1991/4/26', 2023899 );
-CALL insertar_jugador( 'Colombiano','Orlando Andrés' , 'Muñoz', 'Nacional', 6, '1991/8/19', 2022120 );
-CALL insertar_jugador( 'Brasileño','Raúl Sebastián' , 'Martínez', 'Nacional', 7, '1993/1/5', 2004822 );
-CALL insertar_jugador( 'Colombiano','Abel Miguel' , 'Reyes', 'Nacional', 8, '1987/8/28', 2006447 );
-CALL insertar_jugador( 'Colombiano','Luis David' , 'Jiménez', 'Nacional', 9, '1991/10/24', 2013378 );
-CALL insertar_jugador( 'Colombiano','Elías Alonzo' , 'Alex', 'Nacional', 10, '1994/9/28', 2016802 );
-
-
-CALL insertar_jugador( 'Colombiano','Esteban Ezequiel' , 'Alvarez', 'Chico', 0, '1989/5/13', 2014592 );
-CALL insertar_jugador( 'Chileno','Elías Gabriel' , 'Gutiérrez', 'Chico', 1, '1987/8/3', 2001981 );
-CALL insertar_jugador( 'Brasileño','Rafael Max' , 'Sánchez', 'Chico', 2, '1986/6/2', 2004400 );
-CALL insertar_jugador( 'Chileno','Juan Abel' , 'Mora', 'Chico', 3, '1988/10/9', 2006247 );
-CALL insertar_jugador( 'Colombiano','Pedro Andrés' , 'Lara', 'Chico', 4, '1994/7/27', 2023348 );
-CALL insertar_jugador( 'Peruano','Lucas Hugo' , 'Moreno', 'Chico', 5, '1986/4/28', 2028847 );
-CALL insertar_jugador( 'Peruano','Julio Saúl' , 'Daniel', 'Chico', 6, '1990/4/4', 2014257 );
-CALL insertar_jugador( 'Colombiano','Gerardo Pedro' , 'González', 'Chico', 7, '1988/8/12', 2021849 );
-CALL insertar_jugador( 'Colombiano','Iván Ángel' , 'Fernández', 'Chico', 8, '1991/4/29', 2017291 );
-CALL insertar_jugador( 'Colombiano','Francisco Jesús' , 'Romero', 'Chico', 9, '1985/3/20', 2028524 );
-CALL insertar_jugador( 'Chileno','Tomás Alonzo' , 'Moreno', 'Chico', 10, '1994/4/10', 2026600 );
+CALL insertar_jugador( 'Colombiano','Abram Raúl' , 'Araya', 'Alianza', 0, '1988/1/7', 2016786 );
+CALL insertar_jugador( 'Argentino','Juan Román' , 'Ruiz', 'Alianza', 1, '1988/7/10', 2023720 );
+CALL insertar_jugador( 'Colombiano','Ezequiel Enrique' , 'Buitrón', 'Alianza', 2, '1989/3/13', 2028671 );
+CALL insertar_jugador( 'Chileno','Oscar Leonardo' , 'Pérez', 'Alianza', 3, '1994/8/16', 2020074 );
+CALL insertar_jugador( 'Argentino','Ricardo Julián' , 'Alonso', 'Alianza', 4, '1991/7/6', 2023153 );
+CALL insertar_jugador( 'Brasileño','Rodrigo Simón' , 'Rojas', 'Alianza', 5, '1987/3/15', 2027344 );
+CALL insertar_jugador( 'Argentino','Tomás Juan' , 'Herrera', 'Alianza', 6, '1993/7/1', 2032505 );
+CALL insertar_jugador( 'Colombiano','Pablo Alfredo' , 'Linares', 'Alianza', 7, '1985/5/5', 2017294 );
+CALL insertar_jugador( 'Colombiano','Tobías Raúl' , 'Pérez', 'Alianza', 8, '1985/1/16', 2026344 );
+CALL insertar_jugador( 'Chileno','David Carlos' , 'Reyes', 'Alianza', 9, '1988/8/9', 2015763 );
+CALL insertar_jugador( 'Peruano','Gustavo Mateo' , 'Segura', 'Alianza', 10, '1994/8/17', 2014031 );
 
 
-
-CALL insertar_jugador( 'Colombiano','Roberto Leonardo' , 'Elías', 'Quindio', 0, '1991/8/5', 2003173 );
-CALL insertar_jugador( 'Colombiano','Simón Sebastián' , 'Sebastián', 'Quindio', 1, '1990/5/7', 2003961 );
-CALL insertar_jugador( 'Brasileño','Abram Javier' , 'Jiménez', 'Quindio', 2, '1987/2/16', 2000353 );
-CALL insertar_jugador( 'Brasileño','Adrián David' , 'Jiménez', 'Quindio', 3, '1993/4/29', 2014209 );
-CALL insertar_jugador( 'Chileno','Manuel Enrique' , 'Torres', 'Quindio', 4, '1985/9/24', 2004359 );
-CALL insertar_jugador( 'Colombiano','Pablo Julián' , 'Mora', 'Quindio', 5, '1988/10/28', 2013663 );
-CALL insertar_jugador( 'Peruano','Lucas Marcos' , 'Muñoz', 'Quindio', 6, '1991/4/7', 2025276 );
-CALL insertar_jugador( 'Peruano','Jesús Rubén' , 'Juan', 'Quindio', 7, '1990/2/13', 2019606 );
-CALL insertar_jugador( 'Colombiano','Tomás Ezequiel' , 'Lucas', 'Quindio', 8, '1987/11/3', 2002599 );
-CALL insertar_jugador( 'Colombiano','Emanuel Max' , 'Fuentes', 'Quindio', 9, '1994/1/16', 2005357 );
-CALL insertar_jugador( 'Colombiano','Julián Lucas' , 'Orozco', 'Quindio', 10, '1991/5/26', 2022315 );
-
-
-CALL insertar_jugador( 'Chileno','Carlos Óscar' , 'Betancur', 'Pasto', 0, '1991/6/7', 2019047 );
-CALL insertar_jugador( 'Brasileño','Ricardo Saúl' , 'Xavier', 'Pasto', 1, '1994/8/25', 2009709 );
-CALL insertar_jugador( 'Chileno','Sebastián Joel' , 'Oliver', 'Pasto', 2, '1990/2/18', 2007499 );
-CALL insertar_jugador( 'Colombiano','Fernando Víctor' , 'Betancur', 'Pasto', 3, '1987/4/2', 2011988 );
-CALL insertar_jugador( 'Argentino','Francisco Joel' , 'Rodríguez', 'Pasto', 4, '1989/10/12', 2000541 );
-CALL insertar_jugador( 'Colombiano','Pedro Julián' , 'Carlos', 'Pasto', 5, '1986/9/14', 2022146 );
-CALL insertar_jugador( 'Colombiano','Nicolás César' , 'Julián', 'Pasto', 6, '1993/3/24', 2000418 );
-CALL insertar_jugador( 'Colombiano','Max Alexis' , 'Daniel', 'Pasto', 7, '1989/8/13', 2032223 );
-CALL insertar_jugador( 'Colombiano','Maximiliano Pablo' , 'Omar', 'Pasto', 8, '1989/2/5', 2002271 );
-CALL insertar_jugador( 'Brasileño','José Alfredo' , 'Joel', 'Pasto', 9, '1993/5/28', 2021006 );
-CALL insertar_jugador( 'Argentino','Santiago Armando' , 'Andrés', 'Pasto', 10, '1992/3/25', 2014618 );
+CALL insertar_jugador( 'Peruano','Joaquín Mauricio' , 'Orozco', 'Cali', 0, '1988/2/11', 2008464 );
+CALL insertar_jugador( 'Colombiano','Alex Gerardo' , 'Fernández', 'Cali', 1, '1994/5/17', 2015999 );
+CALL insertar_jugador( 'Colombiano','César Fernando' , 'Rojas', 'Cali', 2, '1990/8/10', 2010616 );
+CALL insertar_jugador( 'Peruano','Edgar Mateo' , 'González', 'Cali', 3, '1991/7/22', 2002314 );
+CALL insertar_jugador( 'Brasileño','Héctor Ricardo' , 'Díaz', 'Cali', 4, '1988/1/8', 2005497 );
+CALL insertar_jugador( 'Chileno','Leonardo Fabián' , 'Madrigal', 'Cali', 5, '1989/6/10', 2027839 );
+CALL insertar_jugador( 'Brasileño','Alan Ezequiel' , 'Gómez', 'Cali', 6, '1992/4/9', 2014087 );
+CALL insertar_jugador( 'Chileno','Lorenzo Alex' , 'Ascázubi', 'Cali', 7, '1993/11/28', 2006961 );
+CALL insertar_jugador( 'Argentino','Roberto Manuel' , 'Pérez', 'Cali', 8, '1991/11/27', 2000849 );
+CALL insertar_jugador( 'Brasileño','Arturo Abraham' , 'Alvarez', 'Cali', 9, '1991/3/25', 2012591 );
+CALL insertar_jugador( 'Chileno','Omar Felipe' , 'Jiménez', 'Cali', 10, '1992/4/12', 2008904 );
 
 
-CALL insertar_jugador( 'Argentino','Iván José' , 'Beltrán', 'Once Caldas', 0, '1992/4/22', 2007285 );
-CALL insertar_jugador( 'Colombiano','Manuel David' , 'Xavier', 'Once Caldas', 1, '1992/7/23', 2014294 );
-CALL insertar_jugador( 'Brasileño','Lorenzo Emanuel' , 'Buitrón', 'Once Caldas', 2, '1992/10/20', 2004792 );
-CALL insertar_jugador( 'Brasileño','Iván Francisco' , 'Vinueza', 'Once Caldas', 3, '1985/5/17', 2032474 );
-CALL insertar_jugador( 'Chileno','Eduardo Hugo' , 'Madrigal', 'Once Caldas', 4, '1986/1/25', 2009918 );
-CALL insertar_jugador( 'Colombiano','Esteban Carlos' , 'Salas', 'Once Caldas', 5, '1986/10/19', 2011306 );
-CALL insertar_jugador( 'Colombiano','Felipe Emanuel' , 'Oscar', 'Once Caldas', 6, '1985/2/20', 2022185 );
-CALL insertar_jugador( 'Chileno','Andrés Israel' , 'Araya', 'Once Caldas', 7, '1994/9/21', 2021003 );
-CALL insertar_jugador( 'Brasileño','Arturo Elías' , 'Calderón', 'Once Caldas', 8, '1985/7/15', 2031969 );
-CALL insertar_jugador( 'Peruano','Xavier Guillermo' , 'Hernández', 'Once Caldas', 9, '1994/9/29', 2018178 );
-CALL insertar_jugador( 'Brasileño','Julián Orlando' , 'Bastidas', 'Once Caldas', 10, '1992/4/5', 2008201 );
-
-CALL insertar_jugador( 'Brasileño','Víctor Noé' , 'José', 'Millonarios', 0, '1992/4/9', 2030164 );
-CALL insertar_jugador( 'Colombiano','Saúl Adrián' , 'Castillo', 'Millonarios', 1, '1988/9/23', 2017158 );
-CALL insertar_jugador( 'Colombiano','Guillermo Adán' , 'Ramírez', 'Millonarios', 2, '1994/10/12', 2011654 );
-CALL insertar_jugador( 'Colombiano','Mario Luis' , 'González', 'Millonarios', 3, '1990/10/23', 2013567 );
-CALL insertar_jugador( 'Colombiano','Edgar Josué' , 'Lucas', 'Millonarios', 4, '1985/6/8', 2029022 );
-CALL insertar_jugador( 'Colombiano','Armando Armando' , 'Reyes', 'Millonarios', 5, '1993/8/14', 2024919 );
-CALL insertar_jugador( 'Brasileño','Ezequiel Adrián' , 'Benjamín', 'Millonarios', 6, '1988/6/7', 2018656 );
-CALL insertar_jugador( 'Argentino','Eduardo Julián' , 'Torres', 'Millonarios', 7, '1985/7/10', 2008115 );
-CALL insertar_jugador( 'Chileno','Mario Diego' , 'Santiago', 'Millonarios', 8, '1989/2/16', 2004048 );
-CALL insertar_jugador( 'Colombiano','Héctor Raúl' , 'Luis', 'Millonarios', 9, '1990/10/24', 2001017 );
-CALL insertar_jugador( 'Peruano','Santiago Samuel' , 'Julián', 'Millonarios', 10, '1985/9/6', 2017973 );
-
-CALL insertar_jugador( 'Chileno','Ricardo Omar' , 'Jorge', 'Medellin', 0, '1994/8/9', 2011854 );
-CALL insertar_jugador( 'Argentino','Ricardo Mario' , 'David', 'Medellin', 1, '1987/5/12', 2024659 );
-CALL insertar_jugador( 'Chileno','Fernando Gerardo' , 'Gutiérrez', 'Medellin', 2, '1994/3/26', 2006935 );
-CALL insertar_jugador( 'Peruano','Mauricio Xavier' , 'Araya', 'Medellin', 3, '1989/10/24', 2005808 );
-CALL insertar_jugador( 'Chileno','Joel Adrián' , 'Dávila', 'Medellin', 4, '1991/10/14', 2029432 );
-CALL insertar_jugador( 'Argentino','Gerardo Jesús' , 'Betancur', 'Medellin', 5, '1985/8/25', 2013839 );
-CALL insertar_jugador( 'Colombiano','Alonzo Joaquín' , 'Josué', 'Medellin', 6, '1987/9/21', 2023255 );
-CALL insertar_jugador( 'Argentino','Saúl Saúl' , 'Nicolás', 'Medellin', 7, '1990/8/23', 2028534 );
-CALL insertar_jugador( 'Colombiano','Santiago Jorge' , 'Villalobos', 'Medellin', 8, '1986/8/15', 2017368 );
-CALL insertar_jugador( 'Peruano','Abram Fernando' , 'Juan', 'Medellin', 9, '1993/11/7', 2010283 );
-CALL insertar_jugador( 'Colombiano','Lucián Rubén' , 'Romero', 'Medellin', 10, '1986/4/19', 2015201 );
+CALL insertar_jugador( 'Brasileño','Ramón Diego' , 'Gutiérrez', 'Cucuta', 0, '1985/8/21', 2018124 );
+CALL insertar_jugador( 'Peruano','Adrián Jesús' , 'Hernández', 'Cucuta', 1, '1990/10/29', 2000286 );
+CALL insertar_jugador( 'Argentino','Oliver Guillermo' , 'Orozco', 'Cucuta', 2, '1987/3/22', 2032600 );
+CALL insertar_jugador( 'Colombiano','Carlos Manuel' , 'Orozco', 'Cucuta', 3, '1985/11/29', 2023876 );
+CALL insertar_jugador( 'Brasileño','Edgar Saúl' , 'Gutiérrez', 'Cucuta', 4, '1987/6/2', 2006499 );
+CALL insertar_jugador( 'Brasileño','Andrés Emanuel' , 'Calderón', 'Cucuta', 5, '1991/7/6', 2022890 );
+CALL insertar_jugador( 'Colombiano','Eduardo Xavier' , 'Castillo', 'Cucuta', 6, '1988/4/19', 2032448 );
+CALL insertar_jugador( 'Argentino','Miguel Abram' , 'Gudiño', 'Cucuta', 7, '1987/7/29', 2002818 );
+CALL insertar_jugador( 'Colombiano','Lorenzo Emilio' , 'Ramírez', 'Cucuta', 8, '1992/2/28', 2021631 );
+CALL insertar_jugador( 'Colombiano','Emilio Marcos' , 'Muñoz', 'Cucuta', 9, '1986/2/23', 2002748 );
+CALL insertar_jugador( 'Brasileño','Adrián Mario' , 'Valdés', 'Cucuta', 10, '1990/4/22', 2002801 );
 
 
-CALL insertar_jugador( 'Chileno','Adán Mario' , 'López', 'Itagui', 0, '1992/11/27', 2018866 );
-CALL insertar_jugador( 'Colombiano','Arturo Omar' , 'Ascázubi', 'Itagui', 1, '1990/7/3', 2015127 );
-CALL insertar_jugador( 'Colombiano','Tomás Martín' , 'Omar', 'Itagui', 2, '1990/3/21', 2004560 );
-CALL insertar_jugador( 'Colombiano','Tomás Sebastián' , 'Alonso', 'Itagui', 3, '1985/6/2', 2030942 );
-CALL insertar_jugador( 'Chileno','Samuel Víctor' , 'Linares', 'Itagui', 4, '1992/3/1', 2025226 );
-CALL insertar_jugador( 'Brasileño','Esteban Samuel' , 'Morales', 'Itagui', 5, '1989/1/5', 2014044 );
-CALL insertar_jugador( 'Chileno','Juan Raúl' , 'Segura', 'Itagui', 6, '1988/2/22', 2004645 );
-CALL insertar_jugador( 'Colombiano','Orlando Esteban' , 'Diego', 'Itagui', 7, '1990/8/3', 2004982 );
-CALL insertar_jugador( 'Colombiano','Pablo Gerardo' , 'Miguel', 'Itagui', 8, '1987/1/29', 2015142 );
-CALL insertar_jugador( 'Chileno','Orlando Felipe' , 'Calderón', 'Itagui', 9, '1990/10/15', 2022864 );
-CALL insertar_jugador( 'Chileno','Alan Xavier' , 'Elías', 'Itagui', 10, '1994/7/19', 2003155 );
+CALL insertar_jugador( 'Colombiano','Maximiliano Leonardo' , 'Ramírez', 'Envigado', 0, '1993/7/6', 2001162 );
+CALL insertar_jugador( 'Colombiano','Abram Edgar' , 'Bastidas', 'Envigado', 1, '1993/5/4', 2028071 );
+CALL insertar_jugador( 'Colombiano','Román Pablo' , 'Alvarez', 'Envigado', 2, '1985/1/3', 2018333 );
+CALL insertar_jugador( 'Chileno','Maximiliano Emanuel' , 'López', 'Envigado', 3, '1989/8/13', 2013171 );
+CALL insertar_jugador( 'Colombiano','Matías Samuel' , 'Cifuentes', 'Envigado', 4, '1987/4/7', 2022117 );
+CALL insertar_jugador( 'Peruano','Mario Carlos' , 'Martín', 'Envigado', 5, '1987/9/4', 2003684 );
+CALL insertar_jugador( 'Colombiano','Joel Julián' , 'López', 'Envigado', 6, '1991/5/3', 2030356 );
+CALL insertar_jugador( 'Argentino','Sergio Lorenzo' , 'Herrera', 'Envigado', 7, '1990/4/15', 2015308 );
+CALL insertar_jugador( 'Colombiano','Ezequiel Manuel' , 'Dávila', 'Envigado', 8, '1992/11/14', 2016666 );
+CALL insertar_jugador( 'Brasileño','Alfredo Benjamín' , 'Rodríguez', 'Envigado', 9, '1993/11/12', 2005181 );
+CALL insertar_jugador( 'Chileno','Joaquín Ernesto' , 'Martín', 'Envigado', 10, '1994/8/19', 2012841 );
 
 
-CALL insertar_jugador( 'Argentino','Raúl Jairo' , 'Salas', 'Huila', 0, '1992/6/12', 2020304 );
-CALL insertar_jugador( 'Argentino','Israel Emanuel' , 'Jorge', 'Huila', 1, '1989/7/19', 2006319 );
-CALL insertar_jugador( 'Colombiano','José Marco' , 'Vargas', 'Huila', 2, '1993/7/8', 2002203 );
-CALL insertar_jugador( 'Chileno','Julio Raúl' , 'Fernández', 'Huila', 3, '1992/7/27', 2010113 );
-CALL insertar_jugador( 'Argentino','Gabriel Román' , 'Hernández', 'Huila', 4, '1991/8/11', 2013461 );
-CALL insertar_jugador( 'Peruano','Víctor José' , 'Alonso', 'Huila', 5, '1990/1/3', 2001101 );
-CALL insertar_jugador( 'Colombiano','Antonio Fabián' , 'Jiménez', 'Huila', 6, '1994/6/6', 2028388 );
-CALL insertar_jugador( 'Argentino','Nicolás Adán' , 'Betancur', 'Huila', 7, '1988/9/5', 2020184 );
-CALL insertar_jugador( 'Colombiano','Andrés Orlando' , 'Jorge', 'Huila', 8, '1991/7/16', 2003948 );
-CALL insertar_jugador( 'Argentino','Marcos Joaquín' , 'Eduardo', 'Huila', 9, '1986/4/10', 2019239 );
-CALL insertar_jugador( 'Argentino','Paúl Alejandro' , 'Xavier', 'Huila', 10, '1992/7/18', 2031315 );
+CALL insertar_jugador( 'Peruano','Hugo Elías' , 'Martínez', 'Huila', 0, '1991/8/27', 2007046 );
+CALL insertar_jugador( 'Argentino','Julián Marcos' , 'Ramírez', 'Huila', 1, '1989/9/10', 2014641 );
+CALL insertar_jugador( 'Colombiano','José Fabián' , 'Fuentes', 'Huila', 2, '1985/8/3', 2004282 );
+CALL insertar_jugador( 'Colombiano','Adán Mateo' , 'Pérez', 'Huila', 3, '1990/10/11', 2018660 );
+CALL insertar_jugador( 'Colombiano','Samuel Arturo' , 'López', 'Huila', 4, '1991/6/3', 2032296 );
+CALL insertar_jugador( 'Peruano','Julián Martín' , 'Cruz', 'Huila', 5, '1987/1/20', 2026419 );
+CALL insertar_jugador( 'Peruano','Gabriel Alonzo' , 'Alvarez', 'Huila', 6, '1992/6/8', 2018787 );
+CALL insertar_jugador( 'Peruano','Pedro Víctor' , 'Bustamante', 'Huila', 7, '1991/7/21', 2015694 );
+CALL insertar_jugador( 'Colombiano','Gabriel Rafael' , 'Alonso', 'Huila', 8, '1989/3/16', 2017211 );
+CALL insertar_jugador( 'Brasileño','Ezequiel Santiago' , 'Jiménez', 'Huila', 9, '1991/10/14', 2010151 );
+CALL insertar_jugador( 'Colombiano','Diego Héctor' , 'Jiménez', 'Huila', 10, '1986/11/21', 2014273 );
 
 
-CALL insertar_jugador( 'Colombiano','Mario Ángel' , 'Díaz', 'Cucuta', 0, '1993/10/24', 2017690 );
-CALL insertar_jugador( 'Peruano','Elías Xavier' , 'Martín', 'Cucuta', 1, '1993/1/3', 2004329 );
-CALL insertar_jugador( 'Chileno','Guillermo Nicolás' , 'Hernández', 'Cucuta', 2, '1992/8/16', 2020899 );
-CALL insertar_jugador( 'Brasileño','Ernesto Guillermo' , 'José', 'Cucuta', 3, '1986/4/8', 2018958 );
-CALL insertar_jugador( 'Brasileño','Jaime Noé' , 'Cifuentes', 'Cucuta', 4, '1993/2/23', 2000692 );
-CALL insertar_jugador( 'Chileno','Abram Lucián' , 'Fuentes', 'Cucuta', 5, '1987/7/4', 2002147 );
-CALL insertar_jugador( 'Peruano','Enrique Raúl' , 'Romero', 'Cucuta', 6, '1987/3/7', 2015023 );
-CALL insertar_jugador( 'Chileno','Pablo Édgar' , 'Eduardo', 'Cucuta', 7, '1990/2/25', 2010863 );
-CALL insertar_jugador( 'Colombiano','Enrique Joaquín' , 'Cifuentes', 'Cucuta', 8, '1989/5/16', 2002108 );
-CALL insertar_jugador( 'Brasileño','Víctor Abel' , 'Romero', 'Cucuta', 9, '1992/10/17', 2008950 );
-CALL insertar_jugador( 'Chileno','Alex Xavier' , 'Antonio', 'Cucuta', 10, '1994/2/22', 2030270 );
+CALL insertar_jugador( 'Peruano','Jaime Ernesto' , 'Pérez', 'Itagui', 0, '1988/4/29', 2017902 );
+CALL insertar_jugador( 'Argentino','Francisco Iván' , 'González', 'Itagui', 1, '1988/5/15', 2032326 );
+CALL insertar_jugador( 'Colombiano','Abel Nicolás' , 'Ascázubi', 'Itagui', 2, '1985/5/10', 2002837 );
+CALL insertar_jugador( 'Colombiano','Jairo Alonzo' , 'Rojas', 'Itagui', 3, '1994/5/1', 2002395 );
+CALL insertar_jugador( 'Colombiano','Israel César' , 'Castañón', 'Itagui', 4, '1994/1/7', 2019788 );
+CALL insertar_jugador( 'Argentino','Israel Israel' , 'Sánchez', 'Itagui', 5, '1987/7/28', 2030417 );
+CALL insertar_jugador( 'Peruano','Juan Rodrigo' , 'Sánchez', 'Itagui', 6, '1992/10/24', 2022021 );
+CALL insertar_jugador( 'Peruano','Esteban Francisco' , 'Castañón', 'Itagui', 7, '1994/5/22', 2008121 );
+CALL insertar_jugador( 'Brasileño','Emanuel Jaime' , 'Salas', 'Itagui', 8, '1988/1/13', 2029169 );
+CALL insertar_jugador( 'Colombiano','Iván Emilio' , 'Torres', 'Itagui', 9, '1990/4/25', 2010341 );
+CALL insertar_jugador( 'Argentino','Gabriel Elías' , 'Betancur', 'Itagui', 10, '1992/2/8', 2000256 );
+
+
+CALL insertar_jugador( 'Peruano','Edgar Joel' , 'Bastidas', 'Medellin', 0, '1993/7/1', 2004196 );
+CALL insertar_jugador( 'Colombiano','Esteban José' , 'Valverde', 'Medellin', 1, '1989/2/5', 2001636 );
+CALL insertar_jugador( 'Colombiano','Julio Guillermo' , 'Segura', 'Medellin', 2, '1990/10/21', 2017033 );
+CALL insertar_jugador( 'Colombiano','Edgar Pablo' , 'Gutiérrez', 'Medellin', 3, '1991/7/19', 2014477 );
+CALL insertar_jugador( 'Argentino','Matías Hugo' , 'Ramírez', 'Medellin', 4, '1988/3/1', 2009443 );
+CALL insertar_jugador( 'Argentino','Santiago Víctor' , 'Pérez', 'Medellin', 5, '1987/8/4', 2004397 );
+CALL insertar_jugador( 'Colombiano','Alonzo Andrés' , 'Castañón', 'Medellin', 6, '1993/8/3', 2010437 );
+CALL insertar_jugador( 'Colombiano','Ricardo Luis' , 'Castillo', 'Medellin', 7, '1994/1/1', 2023861 );
+CALL insertar_jugador( 'Colombiano','Lorenzo Salvador' , 'Valverde', 'Medellin', 8, '1992/9/16', 2023230 );
+CALL insertar_jugador( 'Argentino','Abraham Gustavo' , 'Díaz', 'Medellin', 9, '1986/4/14', 2019669 );
+CALL insertar_jugador( 'Brasileño','Julián Oliver' , 'Martínez', 'Medellin', 10, '1986/4/9', 2029345 );
+
+
+CALL insertar_jugador( 'Colombiano','José Sebastián' , 'Mateus', 'Millonarios', 0, '1994/5/3', 2000895 );
+CALL insertar_jugador( 'Colombiano','Sergio Armando' , 'Hernández', 'Millonarios', 1, '1990/7/10', 2025470 );
+CALL insertar_jugador( 'Colombiano','Santiago Tobías' , 'Araya', 'Millonarios', 2, '1985/5/15', 2010211 );
+CALL insertar_jugador( 'Argentino','Luis Alan' , 'Valdés', 'Millonarios', 3, '1987/10/14', 2027558 );
+CALL insertar_jugador( 'Peruano','Mario Carlos' , 'Jiménez', 'Millonarios', 4, '1988/10/14', 2029683 );
+CALL insertar_jugador( 'Colombiano','Matías Felipe' , 'Martínez', 'Millonarios', 5, '1986/11/28', 2009386 );
+CALL insertar_jugador( 'Peruano','Sergio Xavier' , 'López', 'Millonarios', 6, '1990/5/4', 2017631 );
+CALL insertar_jugador( 'Colombiano','Joaquín Omar' , 'Martínez', 'Millonarios', 7, '1989/10/14', 2004955 );
+CALL insertar_jugador( 'Colombiano','Orlando Emilio' , 'Vargas', 'Millonarios', 8, '1993/4/13', 2011033 );
+CALL insertar_jugador( 'Colombiano','Fernando Esteban' , 'Castañón', 'Millonarios', 9, '1993/2/17', 2014282 );
+CALL insertar_jugador( 'Chileno','Iván Sergio' , 'Cifuentes', 'Millonarios', 10, '1994/10/2', 2031314 );
+
+
+CALL insertar_jugador( 'Colombiano','Salvador Marco' , 'Villalobos', 'Once Caldas', 0, '1985/6/28', 2007496 );
+CALL insertar_jugador( 'Brasileño','Leonardo Fernando' , 'Ramírez', 'Once Caldas', 1, '1987/5/4', 2022906 );
+CALL insertar_jugador( 'Chileno','Oscar Joaquín' , 'Sánchez', 'Once Caldas', 2, '1989/6/13', 2027239 );
+CALL insertar_jugador( 'Brasileño','Julio Josué' , 'Gudiño', 'Once Caldas', 3, '1990/1/28', 2021187 );
+CALL insertar_jugador( 'Colombiano','Antonio Alexis' , 'Mora', 'Once Caldas', 4, '1985/11/15', 2028918 );
+CALL insertar_jugador( 'Argentino','Arturo Enrique' , 'Sánchez', 'Once Caldas', 5, '1992/5/21', 2025501 );
+CALL insertar_jugador( 'Argentino','Enrique Raúl' , 'Villalobos', 'Once Caldas', 6, '1990/3/15', 2015880 );
+CALL insertar_jugador( 'Argentino','Antonio Enrique' , 'Martínez', 'Once Caldas', 7, '1993/5/8', 2003258 );
+CALL insertar_jugador( 'Peruano','Enrique Javier' , 'Fuentes', 'Once Caldas', 8, '1994/6/18', 2010732 );
+CALL insertar_jugador( 'Chileno','Víctor Jaime' , 'Betancur', 'Once Caldas', 9, '1987/9/24', 2025098 );
+CALL insertar_jugador( 'Colombiano','Eduardo Rodrigo' , 'Díaz', 'Once Caldas', 10, '1987/6/14', 2026677 );
+
+
+CALL insertar_jugador( 'Argentino','Javier Esteban' , 'Hernández', 'Pasto', 0, '1992/3/1', 2006847 );
+CALL insertar_jugador( 'Argentino','Noé Francisco' , 'Cruz', 'Pasto', 1, '1986/5/8', 2006066 );
+CALL insertar_jugador( 'Brasileño','Marco Luis' , 'Vargas', 'Pasto', 2, '1986/7/5', 2008522 );
+CALL insertar_jugador( 'Chileno','Diego Alonzo' , 'Bastidas', 'Pasto', 3, '1987/7/27', 2021110 );
+CALL insertar_jugador( 'Argentino','Ricardo Santiago' , 'Vargas', 'Pasto', 4, '1990/8/13', 2009051 );
+CALL insertar_jugador( 'Colombiano','Mateo Ramón' , 'Pérez', 'Pasto', 5, '1992/9/15', 2015825 );
+CALL insertar_jugador( 'Peruano','Francisco Oscar' , 'Linares', 'Pasto', 6, '1988/4/5', 2008676 );
+CALL insertar_jugador( 'Colombiano','Marco Enrique' , 'Sánchez', 'Pasto', 7, '1992/6/8', 2006740 );
+CALL insertar_jugador( 'Chileno','Marco Omar' , 'Villalobos', 'Pasto', 8, '1994/3/6', 2000277 );
+CALL insertar_jugador( 'Chileno','Xavier Hugo' , 'Villalobos', 'Pasto', 9, '1992/8/4', 2021456 );
+CALL insertar_jugador( 'Brasileño','Víctor Alexis' , 'Pérez', 'Pasto', 10, '1986/2/2', 2006240 );
+
+
+CALL insertar_jugador( 'Colombiano','Esteban Diego' , 'Martínez', 'Quindio', 0, '1990/6/20', 2004438 );
+CALL insertar_jugador( 'Colombiano','Ricardo Samuel' , 'Sánchez', 'Quindio', 1, '1986/11/2', 2017014 );
+CALL insertar_jugador( 'Colombiano','Luis Noé' , 'Araya', 'Quindio', 2, '1993/3/20', 2017719 );
+CALL insertar_jugador( 'Chileno','Joel Héctor' , 'Martínez', 'Quindio', 3, '1993/5/26', 2027975 );
+CALL insertar_jugador( 'Chileno','Israel Paúl' , 'Romero', 'Quindio', 4, '1986/7/6', 2015621 );
+CALL insertar_jugador( 'Colombiano','Omar Tobías' , 'Orozco', 'Quindio', 5, '1991/1/13', 2010757 );
+CALL insertar_jugador( 'Colombiano','Oscar Alejandro' , 'Buitrón', 'Quindio', 6, '1994/7/21', 2012687 );
+CALL insertar_jugador( 'Brasileño','Alan Leonardo' , 'Gutiérrez', 'Quindio', 7, '1986/1/15', 2015648 );
+CALL insertar_jugador( 'Colombiano','Leonardo Benjamín' , 'Rodríguez', 'Quindio', 8, '1990/9/17', 2022247 );
+CALL insertar_jugador( 'Colombiano','Roberto Tobías' , 'Lara', 'Quindio', 9, '1990/9/18', 2011850 );
+CALL insertar_jugador( 'Chileno','Gabriel Pedro' , 'Mateus', 'Quindio', 10, '1992/8/9', 2027743 );
+
+
+CALL insertar_jugador( 'Brasileño','Gustavo Alejandro' , 'Madrigal', 'Santafe', 0, '1989/6/19', 2022643 );
+CALL insertar_jugador( 'Peruano','Leonardo Daniel' , 'Jiménez', 'Santafe', 1, '1987/2/15', 2019590 );
+CALL insertar_jugador( 'Colombiano','Leonardo Orlando' , 'Cruz', 'Santafe', 2, '1986/3/21', 2031181 );
+CALL insertar_jugador( 'Peruano','César Héctor' , 'Linares', 'Santafe', 3, '1992/8/17', 2032047 );
+CALL insertar_jugador( 'Brasileño','Marco Alex' , 'Rodríguez', 'Santafe', 4, '1993/6/22', 2017353 );
+CALL insertar_jugador( 'Colombiano','Juan Ezequiel' , 'Salas', 'Santafe', 5, '1987/7/15', 2016234 );
+CALL insertar_jugador( 'Colombiano','Esteban David' , 'López', 'Santafe', 6, '1994/6/16', 2027415 );
+CALL insertar_jugador( 'Argentino','Ricardo Hugo' , 'Villalobos', 'Santafe', 7, '1987/4/10', 2008072 );
+CALL insertar_jugador( 'Chileno','Gerardo Santiago' , 'Rojas', 'Santafe', 8, '1990/7/4', 2014248 );
+CALL insertar_jugador( 'Colombiano','Tomás Iván' , 'Gutiérrez', 'Santafe', 9, '1988/3/20', 2001305 );
+CALL insertar_jugador( 'Colombiano','Joel Alonzo' , 'Díaz', 'Santafe', 10, '1987/8/26', 2005295 );
+
+
+CALL insertar_jugador( 'Colombiano','César Pedro' , 'Castañón', 'Chico', 0, '1986/8/9', 2017136 );
+CALL insertar_jugador( 'Colombiano','Noé Rubén' , 'Alvarez', 'Chico', 1, '1994/5/27', 2008347 );
+CALL insertar_jugador( 'Argentino','Marco Alonzo' , 'González', 'Chico', 2, '1993/10/5', 2010013 );
+CALL insertar_jugador( 'Brasileño','Andrés Víctor' , 'Ascázubi', 'Chico', 3, '1994/9/9', 2015645 );
+CALL insertar_jugador( 'Brasileño','Manuel Julián' , 'Cruz', 'Chico', 4, '1989/8/28', 2002801 );
+CALL insertar_jugador( 'Colombiano','Noé David' , 'Cruz', 'Chico', 5, '1994/5/3', 2007975 );
+CALL insertar_jugador( 'Peruano','Edgar Mauricio' , 'Sánchez', 'Chico', 6, '1993/6/23', 2025342 );
+CALL insertar_jugador( 'Colombiano','Sebastián Emilio' , 'Martínez', 'Chico', 7, '1991/10/29', 2024298 );
+CALL insertar_jugador( 'Brasileño','Fabián Arturo' , 'Vargas', 'Chico', 8, '1987/2/15', 2020243 );
+CALL insertar_jugador( 'Chileno','Sebastián Oscar' , 'Bustamante', 'Chico', 9, '1989/2/9', 2002006 );
+CALL insertar_jugador( 'Peruano','Manuel Pablo' , 'Cruz', 'Chico', 10, '1994/10/12', 2010818 );
+
+
+CALL insertar_jugador( 'Colombiano','Sergio Francisco' , 'Muñoz', 'Equidad', 0, '1993/10/6', 2010397 );
+CALL insertar_jugador( 'Brasileño','Armando César' , 'Beltrán', 'Equidad', 1, '1993/10/3', 2006877 );
+CALL insertar_jugador( 'Colombiano','Emilio Pablo' , 'Calderón', 'Equidad', 2, '1986/1/5', 2025391 );
+CALL insertar_jugador( 'Chileno','Jesús Alejandro' , 'Martínez', 'Equidad', 3, '1994/10/12', 2008819 );
+CALL insertar_jugador( 'Peruano','Marcos Gerardo' , 'Cifuentes', 'Equidad', 4, '1988/8/28', 2031934 );
+CALL insertar_jugador( 'Colombiano','Maximiliano Abel' , 'Martín', 'Equidad', 5, '1986/10/19', 2011735 );
+CALL insertar_jugador( 'Brasileño','Marcos Emanuel' , 'Gómez', 'Equidad', 6, '1986/5/1', 2028090 );
+CALL insertar_jugador( 'Colombiano','Ricardo Gerardo' , 'Orozco', 'Equidad', 7, '1994/3/2', 2009496 );
+CALL insertar_jugador( 'Colombiano','Joaquín Sebastián' , 'Gutiérrez', 'Equidad', 8, '1988/6/26', 2029141 );
+CALL insertar_jugador( 'Colombiano','Joel Mauricio' , 'Madrigal', 'Equidad', 9, '1985/8/25', 2031625 );
+CALL insertar_jugador( 'Chileno','Abraham Salvador' , 'Cruz', 'Equidad', 10, '1993/10/1', 2006144 );
+
+
+CALL insertar_jugador( 'Colombiano','Emanuel Gustavo' , 'Orozco', 'Nacional', 0, '1988/9/17', 2016314 );
+CALL insertar_jugador( 'Colombiano','Simón Pedro' , 'Ascázubi', 'Nacional', 1, '1988/9/18', 2021099 );
+CALL insertar_jugador( 'Argentino','Juan Raúl' , 'Rodríguez', 'Nacional', 2, '1991/2/10', 2011132 );
+CALL insertar_jugador( 'Colombiano','Raúl Iván' , 'Jiménez', 'Nacional', 3, '1993/8/7', 2001672 );
+CALL insertar_jugador( 'Colombiano','Roberto Martín' , 'Linares', 'Nacional', 4, '1991/3/28', 2013280 );
+CALL insertar_jugador( 'Colombiano','Elías Xavier' , 'Sánchez', 'Nacional', 5, '1991/8/18', 2007431 );
+CALL insertar_jugador( 'Brasileño','Daniel Angel' , 'Martín', 'Nacional', 6, '1987/2/11', 2006455 );
+CALL insertar_jugador( 'Peruano','Miguel Max' , 'Fernández', 'Nacional', 7, '1990/2/14', 2004570 );
+CALL insertar_jugador( 'Colombiano','Edgar Gustavo' , 'Lara', 'Nacional', 8, '1988/4/25', 2030482 );
+CALL insertar_jugador( 'Colombiano','Simón Enrique' , 'Valdés', 'Nacional', 9, '1989/11/1', 2001074 );
+CALL insertar_jugador( 'Colombiano','Santiago Rafael' , 'González', 'Nacional', 10, '1985/2/6', 2021570 );
 
 
 
-CALL insertar_jugador( 'Argentino','Miguel Adrián' , 'Martínez', 'Cali', 0, '1993/3/28', 2018684 );
-CALL insertar_jugador( 'Colombiano','Oliver Josué' , 'Joel', 'Cali', 1, '1986/9/14', 2023515 );
-CALL insertar_jugador( 'Colombiano','Leonardo Fabián' , 'Diego', 'Cali', 2, '1994/11/11', 2010184 );
-CALL insertar_jugador( 'Brasileño','Emiliano Fernando' , 'Linares', 'Cali', 3, '1993/2/1', 2011383 );
-CALL insertar_jugador( 'Colombiano','Carlos Marco' , 'González', 'Cali', 4, '1994/9/4', 2020191 );
-CALL insertar_jugador( 'Colombiano','Antonio Raúl' , 'Gabriel', 'Cali', 5, '1993/6/2', 2018360 );
-CALL insertar_jugador( 'Argentino','Leonardo Luis' , 'Iván', 'Cali', 6, '1985/11/19', 2008708 );
-CALL insertar_jugador( 'Colombiano','Marcos Román' , 'Samuel', 'Cali', 7, '1991/6/7', 2018819 );
-CALL insertar_jugador( 'Colombiano','Alejandro David' , 'Max', 'Cali', 8, '1986/3/28', 2010557 );
-CALL insertar_jugador( 'Brasileño','Matías Felipe' , 'López', 'Cali', 9, '1994/3/27', 2023037 );
-CALL insertar_jugador( 'Brasileño','Alan Mauricio' , 'Vinueza', 'Cali', 10, '1986/6/13', 2024784 );
 
 
-CALL insertar_jugador( 'Brasileño','Hugo Mateo' , 'Alonso', 'Alianza', 0, '1988/3/12', 2032138 );
-CALL insertar_jugador( 'Colombiano','Sebastián Israel' , 'Muñoz', 'Alianza', 1, '1987/4/27', 2002369 );
-CALL insertar_jugador( 'Brasileño','Jairo Enrique' , 'Romero', 'Alianza', 2, '1987/1/23', 2025807 );
-CALL insertar_jugador( 'Chileno','Maximiliano Gerardo' , 'Castañón', 'Alianza', 3, '1985/9/27', 2030548 );
-CALL insertar_jugador( 'Colombiano','Carlos Juan' , 'Gutiérrez', 'Alianza', 4, '1992/4/21', 2015539 );
-CALL insertar_jugador( 'Colombiano','Alex Leonardo' , 'Castañón', 'Alianza', 5, '1991/3/24', 2025616 );
-CALL insertar_jugador( 'Peruano','Matías Israel' , 'Lucas', 'Alianza', 6, '1986/4/8', 2032344 );
-CALL insertar_jugador( 'Colombiano','Jorge Israel' , 'Landázuri', 'Alianza', 7, '1994/10/10', 2015546 );
-CALL insertar_jugador( 'Colombiano','Guillermo Abram' , 'Alan', 'Alianza', 8, '1993/6/11', 2016166 );
-CALL insertar_jugador( 'Colombiano','Héctor Paúl' , 'Madrigal', 'Alianza', 9, '1989/7/14', 2029397 );
-CALL insertar_jugador( 'Chileno','José Julio' , 'Vargas', 'Alianza', 10, '1989/9/4', 2000192 );
+CALL insertar_jugador( 'Colombiano','Mario Enrique' , 'Bustamante', 'Tolima', 0, '1989/8/7', 2018047 );
+CALL insertar_jugador( 'Peruano','Santiago Jairo' , 'Martín', 'Tolima', 1, '1992/9/26', 2013017 );
+CALL insertar_jugador( 'Colombiano','Julián Emanuel' , 'Fernández', 'Tolima', 2, '1990/4/28', 2028275 );
+CALL insertar_jugador( 'Brasileño','Sebastián Emanuel' , 'López', 'Tolima', 3, '1994/10/20', 2008230 );
+CALL insertar_jugador( 'Brasileño','Salvador Jesús' , 'Castillo', 'Tolima', 4, '1992/6/3', 2025854 );
+CALL insertar_jugador( 'Chileno','Raúl Tobías' , 'Betancur', 'Tolima', 5, '1986/2/13', 2017595 );
+CALL insertar_jugador( 'Argentino','Elías Oliver' , 'Betancur', 'Tolima', 6, '1987/7/4', 2030290 );
+CALL insertar_jugador( 'Brasileño','Abel Alex' , 'Moreno', 'Tolima', 7, '1985/1/19', 2029802 );
+CALL insertar_jugador( 'Colombiano','Emilio Lucián' , 'Vinueza', 'Tolima', 8, '1991/10/5', 2025055 );
+CALL insertar_jugador( 'Peruano','Simón Jairo' , 'Díaz', 'Tolima', 9, '1993/11/19', 2015938 );
+CALL insertar_jugador( 'Chileno','Alejandro Alejandro' , 'Fernández', 'Tolima', 10, '1986/7/8', 2027223 );
 
-
-CALL insertar_jugador( 'Peruano','Ernesto Armando' , 'José', 'Junior', 0, '1986/7/28', 2019495 );
-CALL insertar_jugador( 'Chileno','Tobías Manuel' , 'Gudiño', 'Junior', 1, '1988/6/21', 2000268 );
-CALL insertar_jugador( 'Colombiano','Julio Rafael' , 'Reyes', 'Junior', 2, '1985/2/16', 2012982 );
-CALL insertar_jugador( 'Chileno','Jorge Héctor' , 'Díaz', 'Junior', 3, '1994/5/5', 2002607 );
-CALL insertar_jugador( 'Peruano','Simón Orlando' , 'Araya', 'Junior', 4, '1989/11/2', 2001221 );
-CALL insertar_jugador( 'Chileno','Tomás Lorenzo' , 'Calderón', 'Junior', 5, '1990/9/5', 2017037 );
-CALL insertar_jugador( 'Argentino','Víctor Adrián' , 'Moreno', 'Junior', 6, '1987/1/29', 2025819 );
-CALL insertar_jugador( 'Chileno','Simón Ramón' , 'Gudiño', 'Junior', 7, '1989/7/11', 2031948 );
-CALL insertar_jugador( 'Colombiano','Gustavo Julio' , 'Julián', 'Junior', 8, '1994/5/5', 2002492 );
-CALL insertar_jugador( 'Brasileño','Oscar Josué' , 'Mateus', 'Junior', 9, '1989/6/1', 2002000 );
-CALL insertar_jugador( 'Argentino','Roberto Enrique' , 'Sánchez', 'Junior', 10, '1994/10/21', 2003693 );
-
-CALL insertar_jugador( 'Colombiano','Marco Matías' , 'Martínez', 'Envigado', 0, '1994/10/6', 2021803 );
-CALL insertar_jugador( 'Brasileño','Sebastián Maximiliano' , 'Dávila', 'Envigado', 1, '1990/4/21', 2009052 );
-CALL insertar_jugador( 'Brasileño','Javier Emilio' , 'Gutiérrez', 'Envigado', 2, '1988/4/25', 2023902 );
-CALL insertar_jugador( 'Brasileño','Adán Abraham' , 'Bustamante', 'Envigado', 3, '1985/9/21', 2011667 );
-CALL insertar_jugador( 'Peruano','Manuel Miguel' , 'Valdés', 'Envigado', 4, '1985/6/23', 2021692 );
-CALL insertar_jugador( 'Chileno','Xavier Gabriel' , 'Cifuentes', 'Envigado', 5, '1986/10/15', 2027778 );
-CALL insertar_jugador( 'Colombiano','Israel Jorge' , 'Adrián', 'Envigado', 6, '1985/7/8', 2014833 );
-CALL insertar_jugador( 'Brasileño','Julio Iván' , 'Andrés', 'Envigado', 7, '1992/4/1', 2004088 );
-CALL insertar_jugador( 'Chileno','Abel Hugo' , 'Alvarez', 'Envigado', 8, '1988/5/19', 2016874 );
-CALL insertar_jugador( 'Peruano','Jesús Marcos' , 'Ramírez', 'Envigado', 9, '1992/1/13', 2009728 );
-CALL insertar_jugador( 'Chileno','Jesús Ángel' , 'González', 'Envigado', 10, '1987/5/19', 2010197 );
-
-
-CALL insertar_jugador( 'Argentino','Manuel Jorge' , 'Andrés', 'Santafe', 0, '1991/11/8', 2022012 );
-CALL insertar_jugador( 'Peruano','Carlos José' , 'Villalobos', 'Santafe', 1, '1989/8/21', 2017217 );
-CALL insertar_jugador( 'Argentino','Israel Julián' , 'Lara', 'Santafe', 2, '1989/2/26', 2003550 );
-CALL insertar_jugador( 'Colombiano','Miguel Joaquín' , 'Ascázubi', 'Santafe', 3, '1985/7/24', 2028753 );
-CALL insertar_jugador( 'Colombiano','Noé Orlando' , 'Fuentes', 'Santafe', 4, '1986/6/19', 2028542 );
-CALL insertar_jugador( 'Brasileño','Ezequiel Abram' , 'Xavier', 'Santafe', 5, '1986/8/14', 2007469 );
-CALL insertar_jugador( 'Peruano','Alan Édgar' , 'Antonio', 'Santafe', 6, '1993/6/2', 2027274 );
-CALL insertar_jugador( 'Brasileño','Alexis Abraham' , 'Vinueza', 'Santafe', 7, '1994/8/16', 2002723 );
-CALL insertar_jugador( 'Brasileño','Max Carlos' , 'Moreno', 'Santafe', 8, '1985/5/21', 2025838 );
-CALL insertar_jugador( 'Argentino','Edgar Jorge' , 'Castillo', 'Santafe', 9, '1990/10/24', 2006080 );
-CALL insertar_jugador( 'Colombiano','Abraham Lorenzo' , 'Fernández', 'Santafe', 10, '1985/9/22', 2002775 );
-
-
-CALL insertar_jugador( 'Brasileño','Salvador Omar' , 'Eduardo', 'Equidad', 0, '1985/2/16', 2022172 );
-CALL insertar_jugador( 'Chileno','Ramón Mario' , 'Carlos', 'Equidad', 1, '1988/9/29', 2007085 );
-CALL insertar_jugador( 'Colombiano','Rodrigo Román' , 'Gutiérrez', 'Equidad', 2, '1988/5/1', 2006912 );
-CALL insertar_jugador( 'Brasileño','Alonzo Iván' , 'Oliver', 'Equidad', 3, '1992/5/13', 2023403 );
-CALL insertar_jugador( 'Argentino','Ramón Omar' , 'Adrián', 'Equidad', 4, '1986/4/22', 2023035 );
-CALL insertar_jugador( 'Chileno','Armando Lorenzo' , 'Ascázubi', 'Equidad', 5, '1990/4/18', 2032368 );
-CALL insertar_jugador( 'Peruano','José Armando' , 'Beltrán', 'Equidad', 6, '1991/7/29', 2024511 );
-CALL insertar_jugador( 'Colombiano','Pedro Marcos' , 'Jiménez', 'Equidad', 7, '1988/4/27', 2022671 );
-CALL insertar_jugador( 'Peruano','Héctor Fernando' , 'Villalobos', 'Equidad', 8, '1989/2/28', 2027580 );
-CALL insertar_jugador( 'Brasileño','Abraham Israel' , 'Martín', 'Equidad', 9, '1989/6/21', 2030935 );
-CALL insertar_jugador( 'Chileno','Alan Salvador' , 'Herrera', 'Equidad', 10, '1991/7/19', 2016548 );
-
+CALL insertar_jugador( 'Brasileño','Víctor Miguel' , 'Dávila', 'Patriotas', 0, '1989/3/20', 2004040 );
+CALL insertar_jugador( 'Peruano','Rodrigo Óscar' , 'Gutiérrez', 'Patriotas', 1, '1987/11/15', 2021889 );
+CALL insertar_jugador( 'Argentino','Rubén Manuel' , 'Linares', 'Patriotas', 2, '1986/1/27', 2012133 );
+CALL insertar_jugador( 'Argentino','Mauricio Samuel' , 'Dávila', 'Patriotas', 3, '1987/1/13', 2003468 );
+CALL insertar_jugador( 'Colombiano','Marcos Mauricio' , 'Vargas', 'Patriotas', 4, '1985/4/5', 2006117 );
+CALL insertar_jugador( 'Chileno','Felipe Andrés' , 'Gudiño', 'Patriotas', 5, '1992/4/3', 2018097 );
+CALL insertar_jugador( 'Colombiano','Pedro Joaquín' , 'Lara', 'Patriotas', 6, '1985/10/13', 2019203 );
+CALL insertar_jugador( 'Colombiano','Armando Enrique' , 'Hernández', 'Patriotas', 7, '1987/10/5', 2018247 );
+CALL insertar_jugador( 'Colombiano','Román Esteban' , 'Landázuri', 'Patriotas', 8, '1990/8/2', 2022455 );
+CALL insertar_jugador( 'Brasileño','Jaime Armando' , 'Madrigal', 'Patriotas', 9, '1989/8/18', 2027367 );
+CALL insertar_jugador( 'Colombiano','Matías Maximiliano' , 'Alvarez', 'Patriotas', 10, '1989/8/18', 2027195 );
 
 
 CALL insertar_entrenador('4785210','Tolima' ,7, 'Alejandro', 'Perez Ramirez', 2013, 7450000);
@@ -289,7 +289,85 @@ CALL insertar_entrenador('4508940','Once Caldas',12,'José Luis','Mantilla Gomez
 CALL insertar_entrenador('8798095','Itagui',4,'Camilo','Gomez Errada', 2013,4502065);
 CALL insertar_entrenador('7408940','Cucuta',15,'Paula Andrea','Cagua Alvarez', 2013,4502065);
 
+CALL insertar_campeonato(2013, 1);
 
+CALL insertar_equipo_en_campeonato( 'Junior', 2013, 1 );
+CALL insertar_equipo_en_campeonato( 'Alianza' , 2013, 1 );
+CALL insertar_equipo_en_campeonato('Tolima' , 2013, 1 );
+CALL insertar_equipo_en_campeonato('Patriotas' , 2013, 1 );
+CALL insertar_equipo_en_campeonato('Nacional' , 2013, 1 );
+CALL insertar_equipo_en_campeonato('Equidad' , 2013, 1 );
+CALL insertar_equipo_en_campeonato('Chico' , 2013, 1 );
+CALL insertar_equipo_en_campeonato('Santafe' , 2013, 1 );
+CALL insertar_equipo_en_campeonato('Quindio', 2013, 1 );
+CALL insertar_equipo_en_campeonato( 'Pasto' , 2013, 1 );
+CALL insertar_equipo_en_campeonato('Once Caldas' , 2013, 1 );
+CALL insertar_equipo_en_campeonato( 'Millonarios', 2013, 1 );
+CALL insertar_equipo_en_campeonato('Medellin' , 2013, 1 );
+CALL insertar_equipo_en_campeonato( 'Itagui' , 2013, 1 );
+CALL insertar_equipo_en_campeonato('Huila', 2013, 1 );
+CALL insertar_equipo_en_campeonato('Envigado', 2013, 1 );
+CALL insertar_equipo_en_campeonato('Cali' , 2013, 1 );
+CALL insertar_equipo_en_campeonato('Cucuta' , 2013, 1 );
+
+CALL insertar_arbitro( 'Emilio' , 'Hernández', 'Arbitro Central' );
+CALL insertar_arbitro( 'Orlando' , 'Cruz', 'Arbitro Central' );
+CALL insertar_arbitro( 'Marcos' , 'Pérez', 'Arbitro Central' );
+CALL insertar_arbitro( 'Pedro' , 'Gómez', 'Arbitro Central' );
+CALL insertar_arbitro( 'Adrián' , 'Martín', 'Arbitro Central' );
+CALL insertar_arbitro( 'Ernesto' , 'Gómez', 'Juez De Linea' );
+CALL insertar_arbitro( 'Ricardo' , 'Fuentes', 'Juez De Linea' );
+CALL insertar_arbitro( 'Lorenzo' , 'Buitrón', 'Juez De Linea' );
+CALL insertar_arbitro( 'Jorge' , 'Gudiño', 'Juez De Linea' );
+CALL insertar_arbitro( 'Leonardo' , 'Dávila', 'Juez De Linea' );
+CALL insertar_arbitro( 'Gerardo' , 'Gómez', 'Juez De Linea' );
+CALL insertar_arbitro( 'Miguel' , 'Madrigal', 'Juez De Linea' );
+CALL insertar_arbitro( 'Adrián' , 'Landázuri', 'Juez De Linea' );
+CALL insertar_arbitro( 'Rubén' , 'Sánchez', 'Juez De Linea' );
+
+CALL insertar_partido('2013/02/02', 'Ibague', 'Manuel Murillo Toro', 1, 2, 'Tolima', 'Patriotas', 2013, 1);
+CALL insertar_partido('2013/02/02', 'Medellín', 'Atanasio Girardot', 2, 2, 'Nacional', 'Chico', 2013, 1);																				
+CALL insertar_partido('2013/02/06', 'Pasto', 'Departamental Libertad', 0, 1, 'Quindio', 'Pasto', 2013, 1);																				
+CALL insertar_partido('2013/02/06', 'Bogotá', 'Nemesio Camacho El Campin', 2, 2, 'Once Caldas', 'Millonarios', 2013, 1);									
+CALL insertar_partido('2013/02/10', 'Itagui', 'Metropol Itagui', 2, 0, 'Medellín', 'Itagui', 2013, 1);																				
+CALL insertar_partido('2013/02/10', 'Neiva', 'Guillermo Plazas Alcid', 1, 0, 'Huila', 'Cucuta', 2013, 1);									
+CALL insertar_partido('2013/02/16', 'Barrancabermeja', 'Daniel Villa Zapata', 3, 0, 'Cali', 'Alianza', 2013, 1);							
+CALL insertar_partido('2013/02/17', 'Barranquilla', 'Metropol Roberto Melendez', 1, 1, 'Junior', 'Santafe', 2013, 1);						
+CALL insertar_partido('2013/02/20', 'Envigado', 'Estadio Polideportivo Sur', 0, 2, 'Envigado', 'Equidad', 2013, 1);										
+
+CALL asingar_partido_arbitro( 'Emilio', 'Hernández', 'Tolima', 'Patriotas', 2013, 1 );										
+CALL asingar_partido_arbitro( 'Ernesto', 'Gómez', 'Tolima', 'Patriotas', 2013, 1 );										
+CALL asingar_partido_arbitro( 'Ricardo', 'Fuentes', 'Tolima', 'Patriotas', 2013, 1 );										
+CALL asingar_partido_arbitro( 'Orlando', 'Cruz', 'Nacional', 'Chico', 2013, 1 );										
+CALL asingar_partido_arbitro( 'Lorenzo', 'Buitron', 'Nacional', 'Chico', 2013, 1 );										
+CALL asingar_partido_arbitro( 'Jorge', 'Gudiño', 'Nacional', 'Chico', 2013, 1 );								
+CALL asingar_partido_arbitro( 'Marcos', 'Pérez', 'Quindio', 'Pasto', 2013, 1 );										
+CALL asingar_partido_arbitro( 'Leonardo', 'Dávila', 'Quindio', 'Pasto', 2013, 1 );										
+CALL asingar_partido_arbitro( 'Gerardo', 'Gómez', 'Quindio', 'Pasto', 2013, 1 );									
+CALL asingar_partido_arbitro( 'Pedro', 'Gómez', 'Once Caldas', 'Millonarios', 2013, 1 );										
+CALL asingar_partido_arbitro( 'Miguel', 'Madrigal', 'Once Caldas', 'Millonarios', 2013, 1 );										
+CALL asingar_partido_arbitro( 'Emilio', 'Hernández', 'Once Caldas', 'Millonarios', 2013, 1 );										
+CALL asingar_partido_arbitro( 'Adrián', 'Martín', 'Medellín', 'Itagui', 2013, 1 );										
+CALL asingar_partido_arbitro( 'Adrián', 'Landázuri', 'Medellín', 'Itagui', 2013, 1 );										
+CALL asingar_partido_arbitro( 'Ruben', 'Sánchez', 'Medellín', 'Itagui', 2013, 1 );										
+CALL asingar_partido_arbitro( 'Orlando', 'Cruz', 'Huila', 'Cucuta', 2013, 1 );										
+CALL asingar_partido_arbitro( 'Ricardo', 'Fuentes', 'Huila', 'Cucuta', 2013, 1 );										
+CALL asingar_partido_arbitro( 'Jorge', 'Gudiño', 'Huila', 'Cucuta', 2013, 1 );										
+CALL asingar_partido_arbitro( 'Emilio', 'Hernández', 'Cali', 'Alianza', 2013, 1 );										
+CALL asingar_partido_arbitro( 'Leonardo', 'Dávila', 'Cali', 'Alianza', 2013, 1 );										
+CALL asingar_partido_arbitro( 'Ernesto', 'Gómez', 'Cali', 'Alianza', 2013, 1 );										
+CALL asingar_partido_arbitro( 'Pedro', 'Gómez', 'Junior', 'Santafe', 2013, 1 );										
+CALL asingar_partido_arbitro( 'Ruben', 'Sánchez', 'Junior', 'Santafe', 2013, 1 );										
+CALL asingar_partido_arbitro( 'Gerardo', 'Gómez', 'Junior', 'Santafe', 2013, 1 );										
+CALL asingar_partido_arbitro( 'Marcos', 'Pérez', 'Envigado', 'Equidad', 2013, 1 );										
+CALL asingar_partido_arbitro( 'Adrián', 'Landázuri', 'Envigado', 'Equidad', 2013, 1 );										
+CALL asingar_partido_arbitro( 'Jorge', 'Gudiño', 'Envigado', 'Equidad', 2013, 1 );								
+									
+								
+
+
+
+SELECT * FROM posicion;
 
 
 /*CALL insertar_partido('2013/5/15', 'PecoraCity', 'PecoraStadium', 2, 1, 'Tolima', 'Patriotas', 2013, 1);
@@ -300,3 +378,4 @@ SELECT * FROM jugador;
 
 SELECT * FROM equipo;
 CALL insertar_campeonato(2013, 1);*/
+
