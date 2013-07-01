@@ -89,11 +89,11 @@ DELIMITER ;
 
 DROP PROCEDURE insertar_equipo;
 DELIMITER $$
-CREATE PROCEDURE insertar_equipo (ciudad VARCHAR(45), nombre VARCHAR(45), rendimiento VARCHAR(45), apellido_tec VARCHAR(45), nombre_tec VARCHAR(45))
+CREATE PROCEDURE insertar_equipo (ciudad VARCHAR(45), nombre VARCHAR(45), nombre_tec VARCHAR(45), apellido_tec  VARCHAR(45))
 	BEGIN
 	START TRANSACTION;
 		SET @id_tec = (SELECT id_tecnico FROM tecnico WHERE nombres_tecnico = nombre_tec  AND apellidos_tecnico = apellido_tec );
-		INSERT INTO equipo (ciudad_equipo, nombre_equipo, rendimiento_equipo, id_tecnico) VALUES (ciudad,nombre,rendimiento, @id_tec);
+		INSERT INTO equipo (ciudad_equipo, nombre_equipo, id_tecnico) VALUES (ciudad,nombre,@id_tec);
 		SET @id = (SELECT id_equipo FROM equipo WHERE nombre_equipo = nombre);
 	COMMIT;
 	END;
@@ -117,8 +117,8 @@ DELIMITER ;
 
 DROP PROCEDURE insertar_tecnico;
 DELIMITER $$
-CREATE PROCEDURE insertar_tecnico(telefono VARCHAR(45), experiencia INT, apellidos VARCHAR(45),
-									nombres VARCHAR(45), salario DOUBLE)
+CREATE PROCEDURE insertar_tecnico(telefono VARCHAR(45), experiencia INT, nombres VARCHAR(45),
+									apellidos VARCHAR(45), salario DOUBLE)
 	BEGIN
 	START TRANSACTION;
 	INSERT INTO tecnico (telefono_tecnico,experiencia_tecnico, apellidos_tecnico, nombres_tecnico, salario_tecnico)
@@ -223,8 +223,38 @@ CREATE PROCEDURE insertar_gol(minuto INT, tipo_gol VARCHAR(45), ape_jug VARCHAR(
 
 $$
 DELIMITER ;
+DROP PROCEDURE cambio_jugador ;
+DELIMITER $$
+CREATE PROCEDURE cambio_jugador ( nombres VARCHAR(45), apellidos VARCHAR(45), equipo_nuevo VARCHAR(45), numero_camiseta INT, salario DOUBLE)
+	BEGIN
+	START TRANSACTION;
+	SET @id_equ = (SELECT id_equipo FROM equipo WHERE nombre_equipo = equipo_nuevo);
+	SET @id_jug = (SELECT id_jugador FROM jugador WHERE nombres_jugador = nombres AND apellidos_jugador = apellidos);
+	UPDATE jugador SET id_equipo = @id_equ, numero_jugador = numero_camiseta, salario_jugador = salario WHERE id_jugador = @id_jug;
+	COMMIT;
+	END;
+$$
+DELIMITER ;
+DROP PROCEDURE cambio_tecnico;
+DELIMITER $$
+CREATE PROCEDURE cambio_tecnico( nombres VARCHAR(45), apellidos VARCHAR(45), equipo_nuevo VARCHAR(45), salario DOUBLE) 
+	BEGIN
+	START TRANSACTION;
+	SET @id_tec = (SELECT id_tecnico FROM tecnico WHERE nombres_tecnico = nombres AND apellidos_tecnico = apellidos);
+	SET @id_equ = (SELECT id_equipo FROM equipo WHERE nombre_equipo = equipo_nuevo);
+	
+	UPDATE tecnico SET salario_tecnico = salario WHERE id_tecnico = @id_tec;
+	UPDATE equipo SET id_tecnico = @id_tec WHERE id_equipo = @id_equ;
+	
+	COMMIT;
+	END;
+$$
+DELIMITER ;
 
-CALL insertar_arbitro('asdasd', 'asdasd', 'pecora');
+CALL cambio_tecnico('Carlos', 'Castro', 'UNequipo2', 133);
+SELECT * FROM historico_tecnico;
+
+/*CALL insertar_arbitro('asdasd', 'asdasd', 'pecora');
 CALL insertar_tecnico('564654465', 7, 'Cruz', 'Andres', 1213213);
 CALL insertar_equipo ('PecoraCity', 'PecoraTeam', 'MALO', 'Cruz', 'Andres');
 CALL insertar_jugador('Cholo', 80, 'Zambrano', 'Pedro', 'PecoraTeam', 0, 10,'1985/03/03', 300000);
@@ -232,4 +262,4 @@ CALL insertar_campeonato(2013, 2);
 CALL insertar_partido( curdate(), 'asdsadasd','asdasd', 8, 7, 'PecoraTeam', 'PecoraTeam', 2013, 2 );
 CALL asingar_partido_arbitro('asdasd', 'asdasd', 'PecoraTeam', 'PecoraTeam', 2013, 2);
 CALL insertar_gol (14, 'penal', 'Zambrano', 'Pedro', 'PecoraTeam', 'PecoraTeam', 2013, 2 );
-CALL insertar_equipo_en_campeonato('PecoraTeam',2013,2);
+CALL insertar_equipo_en_campeonato('PecoraTeam',2013,2);*/
