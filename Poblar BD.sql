@@ -233,6 +233,45 @@ CALL insertar_jugador( 'Colombiano','Gustavo Julio' , 'Julián', 'Junior', 8, '1
 CALL insertar_jugador( 'Brasileño','Oscar Josué' , 'Mateus', 'Junior', 9, '1989/6/1', 2002000 );
 CALL insertar_jugador( 'Argentino','Roberto Enrique' , 'Sánchez', 'Junior', 10, '1994/10/21', 2003693 );
 
+CALL insertar_jugador( 'Colombiano','Marco Matías' , 'Martínez', 'Envigado', 0, '1994/10/6', 2021803 );
+CALL insertar_jugador( 'Brasileño','Sebastián Maximiliano' , 'Dávila', 'Envigado', 1, '1990/4/21', 2009052 );
+CALL insertar_jugador( 'Brasileño','Javier Emilio' , 'Gutiérrez', 'Envigado', 2, '1988/4/25', 2023902 );
+CALL insertar_jugador( 'Brasileño','Adán Abraham' , 'Bustamante', 'Envigado', 3, '1985/9/21', 2011667 );
+CALL insertar_jugador( 'Peruano','Manuel Miguel' , 'Valdés', 'Envigado', 4, '1985/6/23', 2021692 );
+CALL insertar_jugador( 'Chileno','Xavier Gabriel' , 'Cifuentes', 'Envigado', 5, '1986/10/15', 2027778 );
+CALL insertar_jugador( 'Colombiano','Israel Jorge' , 'Adrián', 'Envigado', 6, '1985/7/8', 2014833 );
+CALL insertar_jugador( 'Brasileño','Julio Iván' , 'Andrés', 'Envigado', 7, '1992/4/1', 2004088 );
+CALL insertar_jugador( 'Chileno','Abel Hugo' , 'Alvarez', 'Envigado', 8, '1988/5/19', 2016874 );
+CALL insertar_jugador( 'Peruano','Jesús Marcos' , 'Ramírez', 'Envigado', 9, '1992/1/13', 2009728 );
+CALL insertar_jugador( 'Chileno','Jesús Ángel' , 'González', 'Envigado', 10, '1987/5/19', 2010197 );
+
+
+CALL insertar_jugador( 'Argentino','Manuel Jorge' , 'Andrés', 'Santafe', 0, '1991/11/8', 2022012 );
+CALL insertar_jugador( 'Peruano','Carlos José' , 'Villalobos', 'Santafe', 1, '1989/8/21', 2017217 );
+CALL insertar_jugador( 'Argentino','Israel Julián' , 'Lara', 'Santafe', 2, '1989/2/26', 2003550 );
+CALL insertar_jugador( 'Colombiano','Miguel Joaquín' , 'Ascázubi', 'Santafe', 3, '1985/7/24', 2028753 );
+CALL insertar_jugador( 'Colombiano','Noé Orlando' , 'Fuentes', 'Santafe', 4, '1986/6/19', 2028542 );
+CALL insertar_jugador( 'Brasileño','Ezequiel Abram' , 'Xavier', 'Santafe', 5, '1986/8/14', 2007469 );
+CALL insertar_jugador( 'Peruano','Alan Édgar' , 'Antonio', 'Santafe', 6, '1993/6/2', 2027274 );
+CALL insertar_jugador( 'Brasileño','Alexis Abraham' , 'Vinueza', 'Santafe', 7, '1994/8/16', 2002723 );
+CALL insertar_jugador( 'Brasileño','Max Carlos' , 'Moreno', 'Santafe', 8, '1985/5/21', 2025838 );
+CALL insertar_jugador( 'Argentino','Edgar Jorge' , 'Castillo', 'Santafe', 9, '1990/10/24', 2006080 );
+CALL insertar_jugador( 'Colombiano','Abraham Lorenzo' , 'Fernández', 'Santafe', 10, '1985/9/22', 2002775 );
+
+
+CALL insertar_jugador( 'Brasileño','Salvador Omar' , 'Eduardo', 'Equidad', 0, '1985/2/16', 2022172 );
+CALL insertar_jugador( 'Chileno','Ramón Mario' , 'Carlos', 'Equidad', 1, '1988/9/29', 2007085 );
+CALL insertar_jugador( 'Colombiano','Rodrigo Román' , 'Gutiérrez', 'Equidad', 2, '1988/5/1', 2006912 );
+CALL insertar_jugador( 'Brasileño','Alonzo Iván' , 'Oliver', 'Equidad', 3, '1992/5/13', 2023403 );
+CALL insertar_jugador( 'Argentino','Ramón Omar' , 'Adrián', 'Equidad', 4, '1986/4/22', 2023035 );
+CALL insertar_jugador( 'Chileno','Armando Lorenzo' , 'Ascázubi', 'Equidad', 5, '1990/4/18', 2032368 );
+CALL insertar_jugador( 'Peruano','José Armando' , 'Beltrán', 'Equidad', 6, '1991/7/29', 2024511 );
+CALL insertar_jugador( 'Colombiano','Pedro Marcos' , 'Jiménez', 'Equidad', 7, '1988/4/27', 2022671 );
+CALL insertar_jugador( 'Peruano','Héctor Fernando' , 'Villalobos', 'Equidad', 8, '1989/2/28', 2027580 );
+CALL insertar_jugador( 'Brasileño','Abraham Israel' , 'Martín', 'Equidad', 9, '1989/6/21', 2030935 );
+CALL insertar_jugador( 'Chileno','Alan Salvador' , 'Herrera', 'Equidad', 10, '1991/7/19', 2016548 );
+
+
 
 CALL insertar_entrenador('4785210','Tolima' ,7, 'Alejandro', 'Perez Ramirez', 2013, 7450000);
 CALL insertar_entrenador('4781213','Patriotas',10,'Andrés Camilo', 'Gutierrez Gonzalez', 2013, 13000000);
@@ -251,4 +290,13 @@ CALL insertar_entrenador('8798095','Itagui',4,'Camilo','Gomez Errada', 2013,4502
 CALL insertar_entrenador('7408940','Cucuta',15,'Paula Andrea','Cagua Alvarez', 2013,4502065);
 
 
+
+
+/*CALL insertar_partido('2013/5/15', 'PecoraCity', 'PecoraStadium', 2, 1, 'Tolima', 'Patriotas', 2013, 1);
+
+SELECT COUNT(*) FROM jugador WHERE id_jugador = 6;
 SELECT * FROM jugador;
+
+
+SELECT * FROM equipo;
+CALL insertar_campeonato(2013, 1);*/
