@@ -16,17 +16,27 @@ drop trigger if exists jugador_update;
 drop trigger if exists entrenador_update;
 drop trigger if exists tecnico_update;
 
+drop trigger if exists gol_insert;
+drop trigger if exists partido_insert;
+
 -- ------------ INSERT CONSTRAINT TRIGGERS
 
 DELIMITER $$
 CREATE TRIGGER equipo_insert_constraint BEFORE INSERT ON equipo FOR EACH ROW
 BEGIN
-  DECLARE msg varchar(255);
+	DECLARE msg varchar(255);
 	IF (!(NEW.nombre_equipo regexp binary '^[A-Z]'))
 	THEN
 		SET msg = concat('Constraint equipo_insert_constraint violated in attribute nombre_equipo with value ', NEW.nombre_equipo);
         SIGNAL sqlstate '45000' SET message_text = msg;
 	END IF;
+    
+  IF (!(NEW.rendimiento_equipo like 'MALO' or NEW.rendimiento_equipo like'ESTANDAR' 
+    or NEW.rendimiento_equipo like 'BUENO' or NEW.rendimiento_equipo like 'MUY BUENO'))
+	THEN
+		SET msg = concat('Constraint equipo_insert_constraint violated in attribute rendimiento_equipo with value ', NEW.rendimiento_equipo);
+        SIGNAL sqlstate '45000' SET message_text = msg;
+	END IF;  
 END;
 $$
 
@@ -125,16 +135,23 @@ DELIMITER $$
 CREATE TRIGGER partido_insert_constraint BEFORE INSERT ON partido FOR EACH ROW
 BEGIN
 	DECLARE msg varchar(255);
-	IF (!(NEW.goles_local >= 0))
-	THEN 
-		SET msg = concat('Constraint goles_positivos violated in attribute goles_local with value ', NEW.goles_local);
+  
+  -- los equipo juegan en el campeonato
+  
+  IF((select count(*) from posicion join partido using (id_campeonato) where id_equipo like new.id_local)=0)
+  THEN 
+    SET msg = concat('Constraint partido_insert_constraint violated in attribute id_local with value ', NEW.id_local);
         SIGNAL sqlstate '45000' SET message_text = msg;
-	ELSEIF (!(NEW.goles_visitante >= 0))
-	THEN
-		SET msg = concat('Constraint goles_positivos violated in attribute goles_visitante with value ', NEW.goles_visitante);
+  
+  ELSEIF((select count(*) from posicion join partido using (id_campeonato) where id_equipo like new.id_visitante)=0)
+  THEN 
+    SET msg = concat('Constraint partido_insert_constraint violated in attribute id_visitante with value ', NEW.id_visitante);
         SIGNAL sqlstate '45000' SET message_text = msg;
-	END IF;
-    
+  END IF;
+  
+  
+  -- Partido en misma fecha y misma ciudad
+  
   IF ((select count(*) from partido where fecha_partido like new.fecha_partido)>0)
 	THEN 
     
@@ -146,6 +163,15 @@ BEGIN
     
   END IF;
   
+  -- Partido con mismos contrincantes en misma condicion
+  
+  IF((select count(*) from partido where id_local like new.id_local and id_visitante like new.id_visitante and id_campeonato like
+    new.id_campeonato)>0)
+    THEN 
+    SET msg = concat('Constraint insert_partido violated: El partido ya se jugo');
+        SIGNAL sqlstate '45000' SET message_text = msg;
+   END IF;
+    
   
   
 END;
@@ -162,6 +188,22 @@ BEGIN
 		SET msg = concat('Constraint equipo_update_constraint violated in attribute nombre_equipo with value ', NEW.nombre_equipo);
         SIGNAL sqlstate '45000' SET message_text = msg;
 	END IF;
+    
+  IF (!(NEW.rendimiento_equipo like 'MALO' or NEW.rendimiento_equipo like'ESTANDAR' 
+    or NEW.rendimiento_equipo like 'BUENO' or NEW.rendimiento_equipo like 'MUY BUENO'))
+	THEN
+		SET msg = concat('Constraint equipo_update_constraint violated in attribute rendimiento_equipo with value ', NEW.rendimiento_equipo);
+        SIGNAL sqlstate '45000' SET message_text = msg;
+	END IF;    
+    
+  IF(new.id_tecnico != old.id_tecnico)
+    THEN
+    set @telefono =(select telefono_tecnico from tecnico where id_tecnico like old.id_tecnico);
+    set @experiencia =(select experiencia_tecnico from tecnico where id_tecnico like old.id_tecnico);
+    set @salario= (select salario_tecnico from tecnico where id_tecnico like old.id_tecnico);
+    insert into historico_tecnico 
+        values(old.id_equipo,old.id_tecnico,@telefono,@experiencia,@salario);
+    END IF;
 END;
 $$
 
@@ -260,6 +302,9 @@ DELIMITER $$
 CREATE TRIGGER partido_update_constraint BEFORE UPDATE ON partido FOR EACH ROW
 BEGIN
 	DECLARE msg varchar(255);
+    
+  -- Goles Positivos  
+    
 	IF (!(NEW.goles_local >= 0))
 	THEN 
 		SET msg = concat('Constraint goles_positivos violated in attribute goles_local with value ', NEW.goles_local);
@@ -268,21 +313,9 @@ BEGIN
 	THEN
 		SET msg = concat('Constraint goles_positivos violated in attribute goles_visitante with value ', NEW.goles_visitante);
         SIGNAL sqlstate '45000' SET message_text = msg;
-	END IF;
-    
-  IF ((select count(*) from partido where fecha_partido like new.fecha_partido)>0)
-	THEN 
-    
-    IF((select count(*) from partido where ciudad_partido like new.ciudad_partido)>0)
-    THEN
-		SET msg = concat('Constraint update_partido violated: El partido ya se jugo');
-        SIGNAL sqlstate '45000' SET message_text = msg;
-    END IF;
     
   END IF;
-  
-  
-  
+   
 END;
 $$
 
@@ -291,23 +324,31 @@ $$
 DELIMITER $$
 CREATE TRIGGER jugador_update AFTER UPDATE ON jugador FOR EACH ROW
 BEGIN
+
+IF(new.id_equipo != old.id_equipo)
+THEN
     set @Añojug = (select Year(CURDATE()));
     insert into historico_jugadores 
         values(old.id_equipo,old.id_jugador,@Añojug,old.numero_jugador,old.goles_jugador);
-    
+        
+    update jugador set new.goles_jugador=0 where id_jugador like new.id_jugador;
+ END IF;
 END;
 $$
 
 DELIMITER $$
 CREATE TRIGGER entrenador_update AFTER UPDATE ON entrenador FOR EACH ROW
 BEGIN
+IF(new.id_equipo != old.id_equipo)
+THEN
     set @Añoentre = (select Year(CURDATE()));
     insert into historico_entrenadores 
         values(old.id_equipo,old.id_entrenador,old.salario_entrenador,@Añoentre);
-    
+END IF;
 END;
 $$
 
+/*
 DELIMITER $$
 CREATE TRIGGER tecnico_update AFTER UPDATE ON tecnico FOR EACH ROW
 BEGIN
@@ -318,6 +359,58 @@ BEGIN
     
 END;
 $$
+*/
 
+-- TRIGGERS NORMALES 
+
+
+DELIMITER $$
+CREATE TRIGGER gol_insert AFTER INSERT ON gol FOR EACH ROW
+BEGIN
+    
+    set @equipo = (select jugador.id_equipo from gol,jugador where gol.id_jugador like jugador.id_jugador);
+    
+    IF(@equipo = id_local) THEN update partido set goles_local=goles_local+1 where id_partido like new.id_partido;
+    ELSEIF(@equipo = id_visitante) THEN update partido set goles_visitante=goles_visitante+1 where id_partido like new.id_partido;
+    END IF;
+    
+
+    update jugador set goles_jugador=goles_jugador+1 where id_jugador like new.id_jugador; 
+    
+END;
+$$
+
+DELIMITER $$
+CREATE TRIGGER partido_insert AFTER INSERT ON partido FOR EACH ROW
+BEGIN
+
+    -- actualizacion goles en contra y a favor de los contrincantes
+    
+    update posicion set goles_favor=goles_favor+new.goles_local where id_equipo like new.id_local;
+    update posicion set goles_contra=goles_contra+new.goles_visitante where id_equipo like new.id_local;
+    
+    update posicion set goles_favor=goles_favor+new.goles_visitante where id_equipo like new.id_visitante;
+    update posicion set goles_contra=goles_contra+new.goles_local where id_equipo like new.id_visitante;
+
+    -- Sumar puntos a posicion 
+    
+    IF(new.goles_local>new.goles_visitante)
+    THEN
+        update posicion set puntaje=puntaje+3 where id_equipo like new.id_local;
+    END IF;
+    
+    IF (new.goles_visitante>new.goles_local)
+    THEN 
+        update posicion set puntaje=puntaje+3 where id_equipo like new.id_visitante;
+    END IF; 
+    
+    IF (new.goles_visitante=new.goles_local)
+    THEN
+        update posicion set puntaje=puntaje+1 where id_equipo like new.id_local;
+        update posicion set puntaje=puntaje+1 where id_equipo like new.id_visitante;
+    END IF;
+    
+END;
+$$
 
 
