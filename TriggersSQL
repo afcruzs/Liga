@@ -30,6 +30,12 @@ BEGIN
 		SET msg = concat('Constraint equipo_insert_constraint violated in attribute nombre_equipo with value ', NEW.nombre_equipo);
         SIGNAL sqlstate '45000' SET message_text = msg;
 	END IF;
+    
+  IF (!(NEW.rendimiento_equipo like 'MALO' or 'ESTANDAR' or 'BUENO' or 'MUY BUENO'))
+	THEN
+		SET msg = concat('Constraint equipo_insert_constraint violated in attribute rendimiento_equipo with value ', NEW.rendimiento_equipo);
+        SIGNAL sqlstate '45000' SET message_text = msg;
+	END IF;  
 END;
 $$
 
@@ -187,7 +193,7 @@ BEGIN
     set @telefono =(select telefono_tecnico from tecnico where id_tecnico like old.id_tecnico);
     set @experiencia =(select experiencia_tecnico from tecnico where id_tecnico like old.id_tecnico);
     set @salario= (select salario_tecnico from tecnico where id_tecnico like old.id_tecnico);
-    insert into historico_entrenadores 
+    insert into historico_tecnico 
         values(old.id_equipo,old.id_tecnico,@telefono,@experiencia,@salario);
     END IF;
 END;
