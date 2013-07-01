@@ -4,6 +4,7 @@ drop trigger if exists jugador_insert_constraint;
 drop trigger if exists tecnico_insert_constraint;
 drop trigger if exists entrenador_insert_constraint;
 drop trigger if exists partido_insert_constraint;
+drop trigger if exists gol_insert_constraint;
 
 drop trigger if exists equipo_update_constraint;
 drop trigger if exists arbitro_update_constraint;
@@ -138,12 +139,12 @@ BEGIN
   
   -- los equipo juegan en el campeonato
   
-  IF((select count(*) from posicion join partido using (id_campeonato) where id_equipo like new.id_local)=0)
+  IF((select count(*) from posicion where id_equipo like new.id_local and id_campeonato like new.id_campeonato)=0)
   THEN 
     SET msg = concat('Constraint partido_insert_constraint violated in attribute id_local with value ', NEW.id_local);
         SIGNAL sqlstate '45000' SET message_text = msg;
   
-  ELSEIF((select count(*) from posicion join partido using (id_campeonato) where id_equipo like new.id_visitante)=0)
+  ELSEIF((select count(*) from posicion where id_equipo like new.id_visitante and id_campeonato like new.id_campeonato)=0)
   THEN 
     SET msg = concat('Constraint partido_insert_constraint violated in attribute id_visitante with value ', NEW.id_visitante);
         SIGNAL sqlstate '45000' SET message_text = msg;
@@ -174,6 +175,19 @@ BEGIN
     
   
   
+END;
+$$
+
+DELIMITER $$
+CREATE TRIGGER gol_insert_constraint BEFORE INSERT ON gol FOR EACH ROW
+BEGIN
+	DECLARE msg varchar(255);
+	IF (NEW.minuto<0 or NEW.minuto>100)
+	THEN
+		SET msg = concat('Constraint gol_insert_constraint violated in attribute minuto with value ', NEW.minuto);
+        SIGNAL sqlstate '45000' SET message_text = msg;
+	END IF;
+    
 END;
 $$
 
