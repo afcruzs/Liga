@@ -181,6 +181,15 @@ BEGIN
 		SET msg = concat('Constraint equipo_update_constraint violated in attribute nombre_equipo with value ', NEW.nombre_equipo);
         SIGNAL sqlstate '45000' SET message_text = msg;
 	END IF;
+    
+  IF(new.id_tecnico != old.id_tecnico)
+    THEN
+    set @telefono =(select telefono_tecnico from tecnico where id_tecnico like old.id_tecnico);
+    set @experiencia =(select experiencia_tecnico from tecnico where id_tecnico like old.id_tecnico);
+    set @salario= (select salario_tecnico from tecnico where id_tecnico like old.id_tecnico);
+    insert into historico_entrenadores 
+        values(old.id_equipo,old.id_tecnico,@telefono,@experiencia,@salario);
+    END IF;
 END;
 $$
 
@@ -316,13 +325,16 @@ $$
 DELIMITER $$
 CREATE TRIGGER entrenador_update AFTER UPDATE ON entrenador FOR EACH ROW
 BEGIN
+IF(new.id_equipo != old.id_equipo)
+THEN
     set @Añoentre = (select Year(CURDATE()));
     insert into historico_entrenadores 
         values(old.id_equipo,old.id_entrenador,old.salario_entrenador,@Añoentre);
-    
+END IF;
 END;
 $$
 
+/*
 DELIMITER $$
 CREATE TRIGGER tecnico_update AFTER UPDATE ON tecnico FOR EACH ROW
 BEGIN
@@ -333,6 +345,7 @@ BEGIN
     
 END;
 $$
+*/
 
 -- TRIGGERS NORMALES 
 
@@ -385,3 +398,5 @@ BEGIN
     
 END;
 $$
+
+
