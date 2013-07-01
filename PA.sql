@@ -13,15 +13,17 @@ DROP PROCEDURE IF EXISTS cambio_jugador;
 DROP PROCEDURE IF EXISTS cambio_tecnico;
 DROP PROCEDURE IF EXISTS cambio_entrenador;
 
+DROP procedure insertar_jugador;
 DELIMITER $$
 
-CREATE PROCEDURE insertar_jugador (nacionalidad VARCHAR(45), edad INT,  
-								nombres VARCHAR(45), apellidos VARCHAR(45),  nombre_equ VARCHAR(45), numero_goles INT, numero_camiseta INT, fecha DATETIME, salario DOUBLE)
+CREATE PROCEDURE insertar_jugador (nacionalidad VARCHAR(45),  
+								nombres VARCHAR(45), apellidos VARCHAR(45),  nombre_equ VARCHAR(45), numero_camiseta INT, fecha DATETIME, salario DOUBLE)
 	BEGIN	
-	START TRANSACTION;
+	DECLARE edad INT DEFAULT year(curdate()) - year(fecha);
+	START TRANSACTION;		
 		SET @id_equ = (SELECT id_equipo FROM equipo WHERE nombre_equipo = nombre_equ);
-		INSERT INTO jugador (nacionalidad_jugador, edad_jugador,nombres_jugador, apellidos_jugador, goles_jugador, numero_jugador, fechaNacimiento_jugador, id_equipo, salario_jugador) 
-					VALUES (nacionalidad,edad,nombres,apellidos, numero_goles, numero_camiseta, fecha, @id_equ, salario );
+		INSERT INTO jugador (nacionalidad_jugador, edad_jugador, nombres_jugador, apellidos_jugador, numero_jugador, fechaNacimiento_jugador, id_equipo, salario_jugador) 
+					VALUES (nacionalidad,edad,nombres,apellidos, numero_camiseta, fecha, @id_equ, salario );
 	COMMIT;
 	END;
 $$
