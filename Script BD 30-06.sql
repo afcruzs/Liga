@@ -33,7 +33,7 @@ CREATE  TABLE IF NOT EXISTS `equipo` (
   `id_tecnico` INT NOT NULL ,
   `ciudad_equipo` VARCHAR(45) NULL ,
   `nombre_equipo` VARCHAR(45) NOT NULL ,
-  `rendimiento_equipo` VARCHAR(45) NULL ,
+  `rendimiento_equipo` VARCHAR(45) NULL DEFAULT 'ESTANDAR',
   PRIMARY KEY (`id_equipo`) ,
   CONSTRAINT `fk_equipo_tecnico1`
     FOREIGN KEY (`id_tecnico` )
