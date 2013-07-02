@@ -62,9 +62,10 @@ SELECT * FROM goles_por_partido;
 
 
 
+
 CREATE VIEW ver_partidos_jugados AS
-	(SELECT nombres_jugador, apellidos_jugador, nombre_equipo AS 'Equipo', fecha_partido AS 'Fecha', ciudad_partido AS 'Ciudad', estadio AS 'Estadio', goles_local AS 'Goles local'
-			,goles_visitante AS 'Goles Visitante', año AS 'Año', semestre AS 'Semestre' 
+	(SELECT nombres_jugador AS 'Nombres', apellidos_jugador AS 'Apellidos', nombre_equipo AS 'Equipo', fecha_partido AS 'Fecha', ciudad_partido AS 'Ciudad', estadio AS 'Estadio', goles_local AS 'Goleslocal'
+			,goles_visitante AS 'GolesVisitante', año AS 'Año', semestre AS 'Semestre' 
 			FROM partido NATURAL JOIN campeonato NATURAL JOIN equipo NATURAL JOIN jugador);
 
 SELECT * FROM ver_partidos_jugados;
