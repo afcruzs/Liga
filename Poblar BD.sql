@@ -363,6 +363,8 @@ CALL asingar_partido_arbitro( 'Marcos', 'Pérez', 'Envigado', 'Equidad', 2013, 1
 CALL asingar_partido_arbitro( 'Adrián', 'Landázuri', 'Envigado', 'Equidad', 2013, 1 );										
 CALL asingar_partido_arbitro( 'Jorge', 'Gudiño', 'Envigado', 'Equidad', 2013, 1 );								
 									
+CALL insertar_gol (14, 'penal', 'Maximiliano Leonardo' , 'Ramírez', 'Envigado', 'Equidad', 2013, 1 );
+SELECT * FROM EQUIPO;
 						
 CALL insertar_campeonato(2013, 2);
 
@@ -397,7 +399,7 @@ CALL insertar_partido('2013/12/16', 'Barranquilla', 'Metropol Roberto Melendez',
 CALL insertar_partido('2013/12/19', 'Envigado', 'Estadio Polideportivo Sur', 0, 2, 'Envigado', 'Equidad', 2013, 2) ;										
 
 
-
+;
 SELECT * FROM posicion WHERE id_campeonato = 2;
 
 /*CALL insertar_partido('2013/5/15', 'PecoraCity', 'PecoraStadium', 2, 1, 'Tolima', 'Patriotas', 2013, 1);

@@ -123,7 +123,7 @@ CREATE  TABLE IF NOT EXISTS `jugador` (
   `fechaNacimiento_jugador` DATETIME NOT NULL ,
   `edad_jugador` INT NULL ,
   `numero_jugador` INT NOT NULL ,
-  `salario_jugador` INT NULL ,
+  `salario_jugador` DOUBLE NULL ,
   `goles_jugador` INT NULL ,
   PRIMARY KEY (`id_jugador`) ,
   CONSTRAINT `fk_jugador_equipo1`
@@ -153,6 +153,7 @@ CREATE  TABLE IF NOT EXISTS `historico_jugadores` (
   `año_historico_jugadores` INT NOT NULL ,
   `numero_historico_jugadores` INT NOT NULL ,
   `goles_historico` INT NOT NULL ,
+  `salario_jugador` DOUBLE NULL ,
   PRIMARY KEY (`id_equipo`, `id_jugador`) ,
   CONSTRAINT `fk_historico_jugadores_equipo1`
     FOREIGN KEY (`id_equipo` )

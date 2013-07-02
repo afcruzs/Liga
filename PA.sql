@@ -294,8 +294,100 @@ DELIMITER ;*/
 
 #INsertar gol y actualizar (más arriba y en trigger)
 
+#Devolver el numero de partidos ganados, perdidos, empatados, posicion en el campeoanto y puntaje
+drop procedure obtener_partidos;
+DELIMITER $$
+CREATE PROCEDURE obtener_partidos( id_camp INT, nombre VARCHAR(45) )
+	BEGIN
+	SET @id_equ = (SELECT id_equipo FROM equipo WHERE nombre_equipo = nombre);
+
+	SET @ganados = (SELECT COUNT(*) FROM campeonato NATURAL JOIN partido WHERE (id_campeonato = id_camp)
+				   AND( (id_local = @id_equ AND goles_local > goles_visitante) OR (id_visitante = @id_equ
+				   AND goles_visitante > goles_local) ));
+
+	
+	SET @perdidos = (SELECT COUNT(*) FROM campeonato NATURAL JOIN partido WHERE (id_campeonato = id_camp)
+				   AND( (id_local = @id_equ AND goles_local < goles_visitante) OR (id_visitante = @id_equ
+				   AND goles_visitante < goles_local) ));
 
 
+	SET @empatados =  (SELECT COUNT(*) FROM campeonato NATURAL JOIN partido WHERE (id_campeonato = id_camp)
+				   AND( (id_local = @id_equ AND goles_local = goles_visitante) OR (id_visitante = @id_equ
+				   AND goles_visitante = goles_local) ));
+
+	SET @posicion = (SELECT pos FROM posicion WHERE id_campeonato = id_camp AND id_equipo = @id_equ);
+
+	SET @puntaje = (SELECT puntaje FROM posicion WHERE id_campeonato = id_camp AND id_equipo = @id_equ);
+	
+	(SELECT @ganados);
+	(SELECT @perdidos) ;
+	(SELECT @empatados);
+	(SELECT @posicion);
+	(SELECT @puntaje);
+	
+	END;
+$$
+DELIMITER ;
+
+#Obtener equipos y tiempo historico de un entrenador
+DELIMITER $$
+CREATE PROCEDURE obtener_historico_entrenador(id_entre INT)
+	BEGIN
+	SELECT nombre_equipo AS 'Equipo', ciudad_equipo AS 'Ciudad', rendimiento_equipo AS 'Rendimiento', año_historico_entrenadores AS 'Año' 
+	FROM entrenador NATURAL JOIN historico_entrenadores NATURAL JOIN equipo WHERE id_entrenador = id_entre;
+	END;
+$$
+DELIMITER  ;
+
+#Devolver equipos con un perfil
+DELIMITER $$
+CREATE PROCEDURE obtener_equipos_rendimiento(rendimiento VARCHAR(45))
+	BEGIN
+	SELECT * FROM equipo WHERE rendimiento_equipo LIKE rendimiento;
+	END;
+$$
+DELIMITER ;
+
+CALL obtener_equipos_rendimiento('ESTANDAR');
+
+#PA dado el perfil del equipo devuelva cuantos equipos
+#pertenecen a ese perfil y los 3 jugadores que más goles han anotado de
+#c/u de estos equipos FALTA SACAR GOLEADORES
+
+DELIMITER $$
+CREATE PROCEDURE obtener_equipos_rendimiento_extendido(rendimiento VARCHAR(45))	
+	BEGIN
+	SELECT COUNT(*) FROM equipo WHERE rendimiento_equipo LIKE rendimiento; 
+	END;
+$$
+DELIMITER ;
+
+drop procedure aumentar_salario_jugadores;
+DELIMITER $$
+CREATE PROCEDURE aumentar_salario_jugadores()
+	BEGIN
+	
+	DECLARE done BOOLEAN DEFAULT FALSE;
+	DECLARE salario_ap DOUBLE;
+	DECLARE id_jug INT;
+	DECLARE jugador_cur CURSOR FOR SELECT DISTINCT id_jugador, salario_jugador FROM historico_jugadores WHERE año_historico_jugadores < 1999;
+	DECLARE CONTINUE HANDLER FOR SQLSTATE '02000' SET done = TRUE;
+
+	OPEN jugador_cur;
+
+	REPEAT
+      FETCH jugador_cur INTO salario_ap, id_jug ;
+	  IF salario_ap*1.15 > 5000000 THEN
+			UPDATE jugador SET salario_jugador = salario_jugador *1.10 WHERE id_jugador = id_jugador;
+	  
+	  ELSE 
+			UPDATE jugador SET salario_jugador = salario_jugador *1.15 WHERE id_jugador = id_jugador;
+	  END IF;
+	  UNTIL done END REPEAT;
+	COMMIT;
+	END;
+$$
+DELIMITER ;
 
 /*CALL insertar_arbitro('asdasd', 'asdasd', 'pecora');
 CALL insertar_tecnico('564654465', 7, 'Cruz', 'Andres', 1213213);
