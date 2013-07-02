@@ -1,3 +1,9 @@
+DROP FUNCTION IF EXISTS ganador;
+DROP FUNCTION IF EXISTS nombre_equipo;
+DROP VIEW IF EXISTS vista_partidos;
+DROP VIEW IF EXISTS goles_por_partido;
+DROP PROCEDURE IF EXISTS ver_goles_por_partido;
+
 DELIMITER $
 CREATE FUNCTION ganador( equipo_local VARCHAR(45), equipo_visitante VARCHAR(45),
 						 goles_local INT, goles_visitante INT )
@@ -23,7 +29,7 @@ END
 $
 DELIMITER ;
 
-DROP VIEW IF EXISTS vista_partidos;
+
 CREATE VIEW vista_partidos( fecha_partido, equipo_local, equipo_visitante, 
 							goles_local, goles_visitante, equipo_ganador ) 
 AS 
@@ -35,7 +41,7 @@ AS
 	FROM partido;
 
 
-DROP VIEW IF EXISTS goles_por_partido;
+
 CREATE VIEW goles_por_partido( nombre_jugador, apellido_jugador, goles, 
 							   equipo_local, equipo_visitante, 
 							   año_camp, semestre_camp )

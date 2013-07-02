@@ -1,6 +1,12 @@
 DROP VIEW IF EXISTS ver_equipos_todos;
-DROP IF EXISTS VIEW ver_historico_jugadores;
-DROP IF EXISTS VIEW ver_partidos_jugados;
+DROP VIEW IF EXISTS  ver_historico_jugadores;
+DROP VIEW IF EXISTS  ver_partidos_jugados;
+DROP VIEW IF EXISTS vista_partidos;
+DROP VIEW IF EXISTS tabla_de_posiciones;
+DROP VIEW IF EXISTS goles_por_partido;
+DROP VIEW IF EXISTS ver_historico_jugadores;
+DROP VIEW IF EXISTS ver_partidos_jugados;
+
 
 CREATE VIEW ver_equipos_todos AS
 	SELECT nombre_equipo AS 'Nombre', ciudad_equipo AS 'Ciudad', rendimiento_equipo AS 'Rendimiento',
@@ -12,7 +18,7 @@ SELECT * FROM ver_entrenadores_actuales;
 -- Muestra todos los partidos
 -- ----------------------------
 
-DROP VIEW IF EXISTS vista_partidos;
+
 CREATE VIEW vista_partidos( fecha_partido, equipo_local, equipo_visitante, 
 							goles_local, goles_visitante, ganador, año, semestre ) 
 AS 
@@ -38,7 +44,7 @@ AS
 	FROM posicion NATURAL JOIN equipo NATURAL JOIN campeonato ORDER BY pos ASC; 
 
 
-DROP VIEW IF EXISTS goles_por_partido;
+
 CREATE VIEW goles_por_partido( nombre_jugador, apellido_jugador, goles, 
 							   equipo_local, equipo_visitante, 
 							   año_camp, semestre_camp )
