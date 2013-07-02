@@ -261,7 +261,6 @@ CREATE  TABLE IF NOT EXISTS `gol` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
-CREATE UNIQUE INDEX `id_partido_UNIQUE` ON `gol` (`id_partido` ASC) ;
 
 CREATE INDEX `id_jugador_idx` ON `gol` (`id_jugador` ASC) ;
 

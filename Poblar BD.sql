@@ -363,8 +363,6 @@ CALL asingar_partido_arbitro( 'Marcos', 'Pérez', 'Envigado', 'Equidad', 2013, 1
 CALL asingar_partido_arbitro( 'Adrián', 'Landázuri', 'Envigado', 'Equidad', 2013, 1 );										
 CALL asingar_partido_arbitro( 'Jorge', 'Gudiño', 'Envigado', 'Equidad', 2013, 1 );								
 									
-CALL insertar_gol (14, 'penal', 'Maximiliano Leonardo' , 'Ramírez', 'Envigado', 'Equidad', 2013, 1 );
-SELECT * FROM EQUIPO;
 						
 CALL insertar_campeonato(2013, 2);
 
@@ -397,7 +395,6 @@ CALL insertar_partido('2013/12/05', 'Neiva', 'Guillermo Plazas Alcid', 1, 0, 'Hu
 CALL insertar_partido('2013/12/14', 'Barrancabermeja', 'Daniel Villa Zapata', 3, 0, 'Cali', 'Alianza', 2013, 2) ;							
 CALL insertar_partido('2013/12/16', 'Barranquilla', 'Metropol Roberto Melendez', 1, 1, 'Junior', 'Santafe', 2013, 2) ;						
 CALL insertar_partido('2013/12/19', 'Envigado', 'Estadio Polideportivo Sur', 0, 2, 'Envigado', 'Equidad', 2013, 2) ;										
-
 
 
 CALL insertar_gol(3,'tiro libre','Mario Enrique' , 'Bustamante','Tolima','Patriotas','2013','1','2013/02/02');
