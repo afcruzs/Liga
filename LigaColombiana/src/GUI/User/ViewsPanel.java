@@ -27,7 +27,7 @@ public class ViewsPanel extends JPanel implements ActionListener{
         viewsComboBox.addActionListener(this);
         viewsComboBox.setSelectedIndex(0);
         viewsComboBox.setBounds(20,20,200,25);
-        view = new PositionsPanel("2013", "1");
+        view = new PositionsPanel();
         
         setLayout(null);
         add( actionLabel ); 

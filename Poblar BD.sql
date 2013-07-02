@@ -366,6 +366,7 @@ CALL asingar_partido_arbitro( 'Jorge', 'Gudiño', 'Envigado', 'Equidad', 2013, 1
 						
 CALL insertar_campeonato(2013, 2);
 
+
 CALL insertar_equipo_en_campeonato( 'Junior', 2013, 2 );
 CALL insertar_equipo_en_campeonato( 'Alianza' , 2013, 2 );
 CALL insertar_equipo_en_campeonato('Tolima' , 2013, 2 );
