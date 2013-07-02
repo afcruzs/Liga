@@ -100,7 +100,8 @@ ELSEIF (!(NEW.apellidos_jugador regexp binary '^[A-Z]'))
 	THEN
 		SET msg = concat('Constraint jugador_insert_constraint. Already exists : ', NEW.nombres_jugador,' ',new.apellidos_jugador);
         SIGNAL sqlstate '45000' SET message_text = msg;
-	END IF; 
+	END IF;
+  
    
 END;
 $$
@@ -424,9 +425,7 @@ IF(new.id_equipo != old.id_equipo)
 THEN
     set @Añojug = (select Year(CURDATE()));
     insert into historico_jugadores 
-        values(old.id_equipo,old.id_jugador,@Añojug,old.numero_jugador,old.goles_jugador, old.salario_jugador);
-        
-    update jugador set new.goles_jugador=0 where id_jugador like new.id_jugador;
+        values(old.id_equipo,old.id_jugador,@Añojug,old.numero_jugador,old.goles_jugador,old.salario_jugador);
  END IF;
 END;
 $$
