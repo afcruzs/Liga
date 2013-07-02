@@ -316,7 +316,7 @@ CREATE INDEX `id_campeonato_idx` ON `posicion` (`id_campeonato` ASC) ;
 
 CREATE INDEX `id_equipo_idx` ON `posicion` (`id_equipo` ASC) ;
 
-CREATE UNIQUE INDEX `posicion_idx` ON `posicion` (`id_equipo` ASC, `pos` ASC) ;
+CREATE INDEX `posicion_idx` ON `posicion` (`id_equipo` ASC, `pos` ASC) ;
 
 CREATE INDEX `equipo_campeonato_idx` ON `posicion` (`id_equipo` ASC, `id_campeonato` ASC) ;
 

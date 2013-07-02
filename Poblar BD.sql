@@ -363,12 +363,42 @@ CALL asingar_partido_arbitro( 'Marcos', 'Pérez', 'Envigado', 'Equidad', 2013, 1
 CALL asingar_partido_arbitro( 'Adrián', 'Landázuri', 'Envigado', 'Equidad', 2013, 1 );										
 CALL asingar_partido_arbitro( 'Jorge', 'Gudiño', 'Envigado', 'Equidad', 2013, 1 );								
 									
-								
+						
+CALL insertar_campeonato(2013, 2);
+
+CALL insertar_equipo_en_campeonato( 'Junior', 2013, 2 );
+CALL insertar_equipo_en_campeonato( 'Alianza' , 2013, 2 );
+CALL insertar_equipo_en_campeonato('Tolima' , 2013, 2 );
+CALL insertar_equipo_en_campeonato('Patriotas' , 2013, 2 );
+CALL insertar_equipo_en_campeonato('Nacional' , 2013, 2 );
+CALL insertar_equipo_en_campeonato('Equidad' , 2013, 2 );
+CALL insertar_equipo_en_campeonato('Chico' , 2013, 2 );
+CALL insertar_equipo_en_campeonato('Santafe' , 2013, 2 );
+CALL insertar_equipo_en_campeonato('Quindio', 2013, 2 );
+CALL insertar_equipo_en_campeonato( 'Pasto' , 2013, 2 );
+CALL insertar_equipo_en_campeonato('Once Caldas' , 2013, 2 );
+CALL insertar_equipo_en_campeonato( 'Millonarios', 2013, 2 );
+CALL insertar_equipo_en_campeonato('Medellin' , 2013, 2 );
+CALL insertar_equipo_en_campeonato( 'Itagui' , 2013, 2 );
+CALL insertar_equipo_en_campeonato('Huila', 2013, 2 );
+CALL insertar_equipo_en_campeonato('Envigado', 2013, 2 );
+CALL insertar_equipo_en_campeonato('Cali' , 2013, 2 );
+CALL insertar_equipo_en_campeonato('Cucuta' , 2013, 2 );
+
+
+CALL insertar_partido('2013/12/03', 'Ibague', 'Manuel Murillo Toro', 1, 2, 'Tolima', 'Patriotas', 2013, 2) ;
+CALL insertar_partido('2013/12/15', 'Medellín', 'Atanasio Girardot', 2, 2, 'Nacional', 'Chico', 2013, 2) ;																				
+CALL insertar_partido('2013/12/20', 'Pasto', 'Departamental Libertad', 0, 1, 'Quindio', 'Pasto', 2013, 2) ;																				
+CALL insertar_partido('2013/12/17', 'Bogotá', 'Nemesio Camacho El Campin', 2, 2, 'Once Caldas', 'Millonarios', 2013, 2) ;									
+CALL insertar_partido('2013/12/08', 'Itagui', 'Metropol Itagui', 2, 0, 'Medellín', 'Itagui', 2013, 2) ;																				
+CALL insertar_partido('2013/12/05', 'Neiva', 'Guillermo Plazas Alcid', 1, 0, 'Huila', 'Cucuta', 2013, 2) ;									
+CALL insertar_partido('2013/12/14', 'Barrancabermeja', 'Daniel Villa Zapata', 3, 0, 'Cali', 'Alianza', 2013, 2) ;							
+CALL insertar_partido('2013/12/16', 'Barranquilla', 'Metropol Roberto Melendez', 1, 1, 'Junior', 'Santafe', 2013, 2) ;						
+CALL insertar_partido('2013/12/19', 'Envigado', 'Estadio Polideportivo Sur', 0, 2, 'Envigado', 'Equidad', 2013, 2) ;										
 
 
 
-SELECT * FROM posicion;
-
+SELECT * FROM posicion WHERE id_campeonato = 2;
 
 /*CALL insertar_partido('2013/5/15', 'PecoraCity', 'PecoraStadium', 2, 1, 'Tolima', 'Patriotas', 2013, 1);
 

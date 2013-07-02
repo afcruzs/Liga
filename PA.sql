@@ -12,6 +12,7 @@ DROP PROCEDURE IF EXISTS insertar_gol;
 DROP PROCEDURE IF EXISTS cambio_jugador;
 DROP PROCEDURE IF EXISTS cambio_tecnico;
 DROP PROCEDURE IF EXISTS cambio_entrenador;
+DROP PROCEDURE IF EXISTS cambio_posicion;
 
 DELIMITER $$
 
@@ -221,7 +222,38 @@ CREATE PROCEDURE cambio_entrenador( nombres VARCHAR(45), apellidos VARCHAR(45), 
 $$
 DELIMITER ;
 
-SELECT * FROM equipo;
+#Procedimiento para actualizar la posición
+
+/*DELIMITER $$
+CREATE PROCEDURE cambio_posicion(id_camp INT)
+	BEGIN 
+	DECLARE done BOOLEAN DEFAULT 0;
+	DECLARE aux INT DEFAULT 0;
+	DECLARE id_equipo_ap INT;
+
+	DECLARE equipo CURSOR FOR SELECT id_equipo FROM posicion WHERE id_campeonato = id_camp ORDER BY puntaje DESC;
+	DECLARE CONTINUE HANDLER FOR SQLSTATE '02000' SET done=1;
+
+	OPEN equipo;
+
+	REPEAT
+	  SET aux = aux + 1;
+      FETCH equipo INTO id_equipo_ap;
+	  UPDATE posicion SET pos = aux WHERE id_equipo = id_equipo_ap AND id_campeonato = id_camp;
+	  UNTIL done END REPEAT;
+	  CLOSE equipo;
+	END;
+$$
+DELIMITER ;*/
+
+#########################################################################################
+#########################################################################################
+#########################################################################################
+#########################################################################################
+#PA DEL DOC:
+
+#PA que retorne la edad:
+
 
 /*CALL insertar_arbitro('asdasd', 'asdasd', 'pecora');
 CALL insertar_tecnico('564654465', 7, 'Cruz', 'Andres', 1213213);
@@ -232,3 +264,4 @@ CALL insertar_partido( curdate(), 'asdsadasd','asdasd', 8, 7, 'PecoraTeam', 'Pec
 CALL asingar_partido_arbitro('asdasd', 'asdasd', 'PecoraTeam', 'PecoraTeam', 2013, 2);
 CALL insertar_gol (14, 'penal', 'Zambrano', 'Pedro', 'PecoraTeam', 'PecoraTeam', 2013, 2 );
 CALL insertar_equipo_en_campeonato('PecoraTeam',2013,2);*/
+
