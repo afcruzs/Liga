@@ -13,6 +13,8 @@ DROP PROCEDURE IF EXISTS cambio_jugador;
 DROP PROCEDURE IF EXISTS cambio_tecnico;
 DROP PROCEDURE IF EXISTS cambio_entrenador;
 DROP PROCEDURE IF EXISTS cambio_posicion;
+DROP PROCEDURE IF EXISTS ver_goles_jugador;
+DROP FUNCTION IF EXISTS obtener_edad;
 
 DELIMITER $$
 
@@ -158,14 +160,14 @@ DELIMITER ;
 
 DELIMITER $$
 CREATE PROCEDURE insertar_gol(minuto INT, tipo_gol VARCHAR(45), nom_jug VARCHAR(45), ape_jug VARCHAR(45),
-							  nombre_loc VARCHAR(45), nombre_vis VARCHAR(45), añ INT, sem INT)
+							  nombre_loc VARCHAR(45), nombre_vis VARCHAR(45), añ INT, sem INT, fecha DATETIME )
 	BEGIN
 	START TRANSACTION;
 	SET @id_camp = (SELECT id_campeonato FROM campeonato WHERE semestre = sem AND año = añ);
 	SET @id_local = (SELECT id_equipo FROM equipo WHERE nombre_equipo = nombre_loc );
 	SET @id_vis = (SELECT id_equipo FROM equipo WHERE nombre_equipo = nombre_vis );
 	SET @id_partido = (SELECT id_partido FROM partido WHERE id_local = @id_local AND id_visitante = @id_vis 
-					   AND id_campeonato = @id_camp);
+					   AND id_campeonato = @id_camp AND fecha_partido = fecha);
 	SET @id_jug = (SELECT id_jugador FROM jugador WHERE nombres_jugador = nom_jug AND apellidos_jugador = ape_jug);
 
 	INSERT INTO gol (tipo_gol, minuto, id_partido, id_jugador )VALUES(tipo_gol, minuto, @id_partido, @id_jug);
@@ -253,6 +255,46 @@ DELIMITER ;*/
 #PA DEL DOC:
 
 #PA que retorne la edad:
+DELIMITER $$
+CREATE FUNCTION obtener_edad(nombres VARCHAR(45), apellidos VARCHAR(45))
+RETURNS INT
+	BEGIN
+		SET @ret = (SELECT edad_jugador FROM jugador WHERE nombres_jugador = nombres AND apellidos_jugador = apellidos);
+		RETURN @ret;
+	END;
+$$
+DELIMITER ;
+
+
+
+#MUESTRA todos los goles del jugador
+DELIMITER $$
+CREATE PROCEDURE ver_goles_jugador(nombres VARCHAR(45), apellidos VARCHAR(45))
+	BEGIN
+	(SELECT nombres_jugador AS 'Nombres', apellidos_jugador AS 'Apellidos', nombre_equipo AS 'Equipo Actual', goles_jugador AS 'Goles' 
+		   FROM jugador NATURAL JOIN equipo WHERE nombres_jugador = nombres AND apellidos_jugador = apellidos)
+	UNION
+	(SELECT nombres_jugador AS 'Nombres', apellidos_jugador AS 'Apellidos', nombre_equipo AS 'Equipo', goles_jugador AS 'Goles' 
+		   FROM jugador NATURAL JOIN equipo JOIN historico_jugadores USING(id_jugador) WHERE nombres_jugador = nombres AND apellidos_jugador = apellidos);
+
+	END;
+$$
+DELIMITER ;
+
+
+#Devolver el goleador de un campeonato
+/*DELIMITER $$
+CREATE PROCEDURE obtener_goleador( id_camp INT )
+	BEGIN
+	SET @id_goleador = ( SELECT id_jugador FROM campeonato NATURAL JOIN partido NATURAL JOIN gol ORDER BY LIMIT(1) ASC);
+	SELECT nombres_jugador AS 'Nombres', apellidos_jugador AS 'Apellidos' WHERE id_jugador = @id_goleador;
+	END;
+$$
+DELIMITER ;*/
+
+#INsertar gol y actualizar (más arriba y en trigger)
+
+
 
 
 /*CALL insertar_arbitro('asdasd', 'asdasd', 'pecora');
