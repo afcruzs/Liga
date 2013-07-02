@@ -1,4 +1,6 @@
 DROP VIEW IF EXISTS ver_equipos_todos;
+DROP IF EXISTS VIEW ver_historico_jugadores;
+DROP IF EXISTS VIEW ver_partidos_jugados;
 
 CREATE VIEW ver_equipos_todos AS
 	SELECT nombre_equipo AS 'Nombre', ciudad_equipo AS 'Ciudad', rendimiento_equipo AS 'Rendimiento',
@@ -45,5 +47,27 @@ AS
 		   equipo_nombre(id_visitante), año, semestre	
 	FROM partido NATURAL JOIN campeonato NATURAL JOIN gol NATURAL JOIN jugador
 	GROUP BY nombres_jugador;
+
+SHOW FULL TABLES IN liga WHERE TABLE_TYPE LIKE 'VIEW';
+
+-- Muestra el historico de Jugadores:
+
+CREATE  VIEW ver_historico_jugadores AS
+	SELECT nombres_jugador AS 'Nombres', apellidos_jugador 'Apellidos', año_historico_jugadores AS 'Año', 
+		numero_historico_jugadores AS 'Número de Camiseta', goles_historico AS 'Goles', historico_jugadores.salario_jugador AS 'Salario'
+		FROM historico_jugadores NATURAL JOIN jugador;
+
+SELECT * FROM goles_por_partido;
+
+
+
+
+CREATE VIEW ver_partidos_jugados AS
+	(SELECT nombres_jugador, apellidos_jugador, nombre_equipo AS 'Equipo', fecha_partido AS 'Fecha', ciudad_partido AS 'Ciudad', estadio AS 'Estadio', goles_local AS 'Goles local'
+			,goles_visitante AS 'Goles Visitante', año AS 'Año', semestre AS 'Semestre' 
+			FROM partido NATURAL JOIN campeonato NATURAL JOIN equipo NATURAL JOIN jugador);
+
+SELECT * FROM ver_partidos_jugados;
+	
 
 
