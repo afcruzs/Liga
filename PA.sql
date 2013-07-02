@@ -15,6 +15,11 @@ DROP PROCEDURE IF EXISTS cambio_entrenador;
 DROP PROCEDURE IF EXISTS cambio_posicion;
 DROP PROCEDURE IF EXISTS ver_goles_jugador;
 DROP FUNCTION IF EXISTS obtener_edad;
+DROP PROCEDURE IF EXISTS obtener_partidos;
+DROP PROCEDURE IF EXISTS obtener_historico_entrenador;
+DROP PROCEDURE IF EXISTS obtener_equipos_rendimiento;
+DROP PROCEDURE IF EXISTS obtener_equipos_rendimiento_extendido;
+DROP PROCEDURE IF EXISTS aumentar_salario_jugadores;
 
 DELIMITER $$
 
@@ -295,7 +300,7 @@ DELIMITER ;*/
 #INsertar gol y actualizar (más arriba y en trigger)
 
 #Devolver el numero de partidos ganados, perdidos, empatados, posicion en el campeoanto y puntaje
-drop procedure obtener_partidos;
+
 DELIMITER $$
 CREATE PROCEDURE obtener_partidos( id_camp INT, nombre VARCHAR(45) )
 	BEGIN
@@ -362,7 +367,7 @@ CREATE PROCEDURE obtener_equipos_rendimiento_extendido(rendimiento VARCHAR(45))
 $$
 DELIMITER ;
 
-drop procedure aumentar_salario_jugadores;
+
 DELIMITER $$
 CREATE PROCEDURE aumentar_salario_jugadores()
 	BEGIN
