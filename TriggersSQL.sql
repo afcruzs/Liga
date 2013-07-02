@@ -482,6 +482,21 @@ DELIMITER $$
 CREATE TRIGGER partido_insert AFTER INSERT ON partido FOR EACH ROW
 BEGIN
 
+  DECLARE ganador INT;
+	DECLARE done INT;
+	DECLARE puntaje1 INT;
+	DECLARE puntaje2 INT;
+	DECLARE dif1 INT;
+	DECLARE dif2 INT;
+	DECLARE id1 INT;
+	DECLARE id2 INT;
+	DECLARE cont INT;
+
+	DECLARE actualizar_posiciones CURSOR
+	FOR SELECT id_equipo, puntaje, goles_favor-goles_contra
+	FROM posicion ORDER BY puntaje DESC FOR UPDATE;
+	DECLARE CONTINUE HANDLER FOR SQLSTATE '02000' SET done = 1;
+
     -- actualizacion goles en contra y a favor de los contrincantes
     
     update posicion set goles_favor=goles_favor+new.goles_local where id_equipo like new.id_local;
@@ -507,6 +522,29 @@ BEGIN
         update posicion set puntaje=puntaje+1 where id_equipo like new.id_local;
         update posicion set puntaje=puntaje+1 where id_equipo like new.id_visitante;
     END IF;
+    
+    -- actualizar posiciones
+    
+    SET cont = 1;
+	SET puntaje1 = -1;
+	OPEN actualizar_posiciones;
+	REPEAT
+		FETCH actualizar_posiciones INTO id2, puntaje2, dif2;
+		IF puntaje2 = puntaje1 THEN
+			UPDATE posicion 
+				SET pos = cont-1 WHERE id_equipo = id2;
+		ELSE 
+			UPDATE posicion 
+				SET pos = cont WHERE id_equipo = id2;
+			SET cont = cont + 1;
+		END IF;
+		SET id1 = id2;
+		SET puntaje1 = puntaje2;
+		SET dif1 = dif2;
+	UNTIL done
+	END REPEAT;
+
+	CLOSE actualizar_posiciones;
     
 END;
 $$
