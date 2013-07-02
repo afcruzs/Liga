@@ -124,7 +124,7 @@ CREATE  TABLE IF NOT EXISTS `jugador` (
   `edad_jugador` INT NULL ,
   `numero_jugador` INT NOT NULL ,
   `salario_jugador` DOUBLE NULL ,
-  `goles_jugador` INT NULL ,
+  `goles_jugador` INT NULL DEFAULT 0,
   PRIMARY KEY (`id_jugador`) ,
   CONSTRAINT `fk_jugador_equipo1`
     FOREIGN KEY (`id_equipo` )
