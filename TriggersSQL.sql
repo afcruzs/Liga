@@ -5,6 +5,7 @@ drop trigger if exists tecnico_insert_constraint;
 drop trigger if exists entrenador_insert_constraint;
 drop trigger if exists partido_insert_constraint;
 drop trigger if exists gol_insert_constraint;
+drop trigger if exists campeonato_insert_constraint;
 
 drop trigger if exists equipo_update_constraint;
 drop trigger if exists arbitro_update_constraint;
@@ -19,6 +20,7 @@ drop trigger if exists tecnico_update;
 
 drop trigger if exists gol_insert;
 drop trigger if exists partido_insert;
+drop trigger if exists campeonato_insert;
 
 -- ------------ INSERT CONSTRAINT TRIGGERS
 
@@ -38,6 +40,13 @@ BEGIN
 		SET msg = concat('Constraint equipo_insert_constraint violated in attribute rendimiento_equipo with value ', NEW.rendimiento_equipo);
         SIGNAL sqlstate '45000' SET message_text = msg;
 	END IF;  
+    
+  IF ((select count(*) from equipo where nombre_equipo like new.nombre_equipo)>0)
+	THEN
+		SET msg = concat('Constraint equipo_insert_constraint violated. Already exists : ', NEW.nombre_equipo);
+        SIGNAL sqlstate '45000' SET message_text = msg;
+	END IF;
+    
 END;
 $$
 
@@ -55,6 +64,13 @@ ELSEIF (!(NEW.apellido_arbitro regexp binary '^[A-Z]'))
         SIGNAL sqlstate '45000' SET message_text = msg;
 	
 	END IF;
+  
+  IF ((select count(*) from arbitro where nombre_arbitro like new.nombre_arbitro and apellido_arbitro like new.apellido_arbitro)>0)
+	THEN
+		SET msg = concat('Constraint arbitro_insert_constraint. Already exists : ', NEW.nombre_arbitro,' ',new.apellido_arbitro);
+        SIGNAL sqlstate '45000' SET message_text = msg;
+	END IF;
+    
 END;
 $$
 
@@ -80,6 +96,12 @@ ELSEIF (!(NEW.apellidos_jugador regexp binary '^[A-Z]'))
         SIGNAL sqlstate '45000' SET message_text = msg;
    END IF;
    
+  IF ((select count(*) from jugador where nombres_jugador like new.nombres_jugador and apellidos_jugador like new.apellidos_jugador)>0)
+	THEN
+		SET msg = concat('Constraint jugador_insert_constraint. Already exists : ', NEW.nombres_jugador,' ',new.apellidos_jugador);
+        SIGNAL sqlstate '45000' SET message_text = msg;
+	END IF; 
+   
 END;
 $$
 	
@@ -104,6 +126,12 @@ ELSEIF (!(NEW.apellidos_tecnico regexp binary '^[A-Z]'))
         SIGNAL sqlstate '45000' SET message_text = msg;
    END IF;
    
+  IF ((select count(*) from tecnico where nombres_tecnico like new.nombres_tecnico and apellidos_tecnico like new.apellidos_tecnico)>0)
+	THEN
+		SET msg = concat('Constraint tecnico_insert_constraint. Already exists : ', NEW.nombres_tecnico,' ',new.apellidos_tecnico);
+        SIGNAL sqlstate '45000' SET message_text = msg;
+	END IF; 
+   
 END;
 $$
 
@@ -127,6 +155,13 @@ ELSEIF (!(NEW.apellidos_entrenador regexp binary '^[A-Z]'))
     SET msg = concat('Constraint entrenador_insert_constraint violated in attribute salario_entrenador with value ', NEW.salario_entrenador);
         SIGNAL sqlstate '45000' SET message_text = msg;
    END IF;
+   
+   IF ((select count(*) from entrenador where nombres_entrenador like new.nombres_entrenador and apellidos_entrenador 
+   like new.apellidos_entrenador)>0)
+	THEN
+		SET msg = concat('Constraint entrenador_insert_constraint. Already exists : ', NEW.nombres_entrenador,' ',new.apellidos_entrenador);
+        SIGNAL sqlstate '45000' SET message_text = msg;
+	END IF; 
    
 END;
 $$
@@ -182,11 +217,57 @@ DELIMITER $$
 CREATE TRIGGER gol_insert_constraint BEFORE INSERT ON gol FOR EACH ROW
 BEGIN
 	DECLARE msg varchar(255);
+    
+  -- Minutos permitidos
+  
 	IF (NEW.minuto<0 or NEW.minuto>100)
 	THEN
 		SET msg = concat('Constraint gol_insert_constraint violated in attribute minuto with value ', NEW.minuto);
         SIGNAL sqlstate '45000' SET message_text = msg;
 	END IF;
+    
+  -- Insercion repetida
+  
+  IF ((select count(*) from gol where id_partido like new.id_partido and id_jugador like new.id_jugador and 
+    minuto like new.minuto and tipo_gol like new.tipo_gol)>0)
+	THEN
+		SET msg = concat('Constraint gol_insert_constraint violated. Insercion repetida con atributos :', NEW.id_jugador,', ',
+        NEW.id_partido,', ',NEW.minuto,', ',NEW.tipo_gol,'.');
+        SIGNAL sqlstate '45000' SET message_text = msg;
+	END IF;  
+    
+END;
+$$
+
+DELIMITER $$
+CREATE TRIGGER campeonato_insert_constraint BEFORE INSERT ON campeonato FOR EACH ROW
+BEGIN
+
+-- Insercion Repetida
+
+	DECLARE msg varchar(255); 
+	IF ((select count(*) from campeonato where año like new.año and semestre like new.semestre)>0)
+	THEN
+		SET msg = concat('Constraint campeonato_insert_constraint violated. Already exists : ', NEW.año, ' - ',NEW.semestre);
+        SIGNAL sqlstate '45000' SET message_text = msg;
+	END IF;
+    
+-- Campeonato viejo 
+
+  IF ((select count(*) from campeonato where año > new.año )>0)
+	THEN
+		SET msg = concat('Constraint campeonato_insert_constraint violated. Values :', NEW.año, ' - ',NEW.semestre);
+        SIGNAL sqlstate '45000' SET message_text = msg;
+	END IF;
+  
+  
+  set @maxaño = (select max(año) from campeonato);
+  set @maxsemestre = (select max(semestre) from campeonato where año like @maxaño);
+  IF((@maxaño like new.año) and (@maxsemestre>new.semestre))
+    THEN
+		SET msg = concat('Constraint campeonato_insert_constraint violated. Values :', NEW.año, ' - ',NEW.semestre);
+        SIGNAL sqlstate '45000' SET message_text = msg;
+  END IF;  
     
 END;
 $$
@@ -424,6 +505,71 @@ BEGIN
         update posicion set puntaje=puntaje+1 where id_equipo like new.id_visitante;
     END IF;
     
+END;
+$$
+
+DELIMITER $$
+CREATE TRIGGER campeonato_insert AFTER INSERT ON campeonato FOR EACH ROW
+BEGIN
+    
+  DECLARE done INT DEFAULT 0;
+  DECLARE a INT;
+  DECLARE b INT;
+  DECLARE max INT DEFAULT 0;
+  DECLARE prom INT;
+  DECLARE cur1 CURSOR FOR SELECT DISTINCT id_campeonato FROM posicion;
+  DECLARE cur2 CURSOR FOR SELECT DISTINCT id_equipo from posicion where id_campeonato not like new.id_campeonato;
+  DECLARE CONTINUE HANDLER FOR SQLSTATE '02000' SET done = 1;
+  
+  
+  OPEN cur1;
+  
+  REPEAT
+    FETCH cur1 INTO a;
+    IF NOT done THEN
+    
+       set max = (max+(select max(puntaje) from posicion where id_campeonato like a));
+        
+    END IF;
+  UNTIL done END REPEAT;
+  
+  CLOSE cur1;
+  
+  set max = (max/(SELECT count(DISTINCT id_campeonato) FROM posicion));
+  set done = 0;
+ 
+  OPEN cur2;
+  
+  REPEAT
+    FETCH cur2 INTO b;
+    IF NOT done THEN
+        set prom = (SELECT avg(puntaje) from posicion where id_equipo like b);
+        
+       IF(((prom*100)/max)>=85)
+       THEN
+       update equipo set rendimiento_equipo ='MUY BUENO' where id_equipo like b;
+       END IF;
+       
+       IF(((prom*100)/max)>=75 and ((prom*100)/max)<85)
+       THEN
+       update equipo set rendimiento_equipo ='BUENO' where id_equipo like b;
+       END IF;
+       
+       IF(((prom*100)/max)>=25 and ((prom*100)/max)<75)
+       THEN
+       update equipo set rendimiento_equipo ='ESTANDAR' where id_equipo like b;
+       END IF;
+       
+       IF(((prom*100)/max)<25)
+       THEN
+       update equipo set rendimiento_equipo ='MALO' where id_equipo like b;
+       END IF;
+       
+    END IF;
+  UNTIL done END REPEAT;
+  
+  CLOSE cur2;
+  
 END;
 $$
 
