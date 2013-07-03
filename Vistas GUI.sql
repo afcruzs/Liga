@@ -6,6 +6,7 @@ DROP VIEW IF EXISTS tabla_de_posiciones;
 DROP VIEW IF EXISTS goles_por_partido;
 DROP VIEW IF EXISTS ver_historico_jugadores;
 DROP VIEW IF EXISTS ver_partidos_jugados;
+DROP VIEW IF EXISTS v1;
 
 
 CREATE VIEW ver_equipos_todos AS
@@ -58,12 +59,9 @@ SHOW FULL TABLES IN liga WHERE TABLE_TYPE LIKE 'VIEW';
 
 -- Muestra el historico de Jugadores:
 
-CREATE  VIEW ver_historico_jugadores AS
-	SELECT nombres_jugador AS 'Nombres', apellidos_jugador 'Apellidos', año_historico_jugadores AS 'Año', 
-		numero_historico_jugadores AS 'Número de Camiseta', goles_historico AS 'Goles', historico_jugadores.salario_jugador AS 'Salario'
-		FROM historico_jugadores NATURAL JOIN jugador;
 
-SELECT * FROM goles_por_partido;
+CREATE  VIEW ver_historico_jugadores AS
+	SELECT nombres_jugador AS 'Nombres', apellidos_jugador AS 'Apellidos', nombre_equipo AS 'Equipo', año_historico_jugadores AS 'Año', goles_historico AS 'Goles', numero_historico_jugadores AS 'Numero Camiseta', historico_jugadores.salario_jugador AS 'Salario'  FROM jugador NATURAL JOIN equipo JOIN historico_jugadores USING(id_jugador);
 
 
 
