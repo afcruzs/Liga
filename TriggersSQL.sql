@@ -498,28 +498,28 @@ BEGIN
 
     -- actualizacion goles en contra y a favor de los contrincantes
     
-    update posicion set goles_favor=goles_favor+new.goles_local where id_equipo like new.id_local;
-    update posicion set goles_contra=goles_contra+new.goles_visitante where id_equipo like new.id_local;
+    update posicion set goles_favor=goles_favor+new.goles_local where id_equipo like new.id_local and id_campeonato like new.id_campeonato;
+    update posicion set goles_contra=goles_contra+new.goles_visitante where id_equipo like new.id_local and id_campeonato like new.id_campeonato;
     
-    update posicion set goles_favor=goles_favor+new.goles_visitante where id_equipo like new.id_visitante;
-    update posicion set goles_contra=goles_contra+new.goles_local where id_equipo like new.id_visitante;
+    update posicion set goles_favor=goles_favor+new.goles_visitante where id_equipo like new.id_visitante and id_campeonato like new.id_campeonato;
+    update posicion set goles_contra=goles_contra+new.goles_local where id_equipo like new.id_visitante and id_campeonato like new.id_campeonato;
 
     -- Sumar puntos a posicion 
     
     IF(new.goles_local>new.goles_visitante)
     THEN
-        update posicion set puntaje=puntaje+3 where id_equipo like new.id_local;
+        update posicion set puntaje=puntaje+3 where id_equipo like new.id_local and id_campeonato like new.id_campeonato;
     END IF;
     
     IF (new.goles_visitante>new.goles_local)
     THEN 
-        update posicion set puntaje=puntaje+3 where id_equipo like new.id_visitante;
+        update posicion set puntaje=puntaje+3 where id_equipo like new.id_visitante and id_campeonato like new.id_campeonato;
     END IF; 
     
     IF (new.goles_visitante=new.goles_local)
     THEN
-        update posicion set puntaje=puntaje+1 where id_equipo like new.id_local;
-        update posicion set puntaje=puntaje+1 where id_equipo like new.id_visitante;
+        update posicion set puntaje=puntaje+1 where id_equipo like new.id_local and id_campeonato like new.id_campeonato;
+        update posicion set puntaje=puntaje+1 where id_equipo like new.id_visitante and id_campeonato like new.id_campeonato;
     END IF;
     
     -- actualizar posiciones
@@ -531,10 +531,10 @@ BEGIN
 		FETCH actualizar_posiciones INTO id2, puntaje2, dif2;
 		IF puntaje2 = puntaje1 THEN
 			UPDATE posicion 
-				SET pos = cont-1 WHERE id_equipo = id2;
+				SET pos = cont-1 WHERE id_equipo = id2 and id_campeonato like new.id_campeonato;
 		ELSE 
 			UPDATE posicion 
-				SET pos = cont WHERE id_equipo = id2;
+				SET pos = cont WHERE id_equipo = id2 and id_campeonato like new.id_campeonato;
 			SET cont = cont + 1;
 		END IF;
 		SET id1 = id2;
