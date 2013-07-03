@@ -5,7 +5,7 @@ DROP VIEW IF EXISTS ver_entrenadores_actuales;
 CREATE VIEW ver_entrenadores_actuales AS
 	SELECT nombre_equipo AS 'Equipo' , nombres_entrenador AS 'Nombres', apellidos_entrenador AS 'Apellidos',
 		   salario_entrenador AS 'Salario', telefono_entrenador AS 'Número telefónico', experiencia_entrenador AS 'Experiencia'
-		   FROM entrenador JOIN equipo;
+		    FROM entrenador NATURAL JOIN equipo;
 
 #Vista para ver jugadores actuales y su equipo
 DROP VIEW IF EXISTS ver_jugadores_actuales;
