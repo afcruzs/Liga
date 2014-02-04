@@ -1,4 +1,3 @@
-
 DROP PROCEDURE IF EXISTS insertar_jugador;
 DROP PROCEDURE IF EXISTS insertar_equipo;
 DROP PROCEDURE IF EXISTS insertar_entrenador;
@@ -191,7 +190,7 @@ CREATE PROCEDURE cambio_jugador( nombres VARCHAR(45), apellidos VARCHAR(45), equ
 	START TRANSACTION;
 	SET @id_equ = (SELECT id_equipo FROM equipo WHERE nombre_equipo = equipo_nuevo);
 	SET @id_jug = (SELECT id_jugador FROM jugador WHERE nombres_jugador = nombres AND apellidos_jugador = apellidos);
-	UPDATE jugador SET id_equipo = @id_equ, numero_jugador = numero_camiseta, salario_jugador = salario WHERE id_jugador = @id_jug;
+	UPDATE jugador SET id_equipo = @id_equ, numero_jugador = numero_camiseta, salario_jugador = salario,goles_jugador = 0 WHERE id_jugador = @id_jug;
 	COMMIT;
 	END;
 $$
